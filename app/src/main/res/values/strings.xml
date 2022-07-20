@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vihaan</string>
+    <string name="view_less">View Less</string>
+    <string name="view_more">View More</string>
 </resources>
