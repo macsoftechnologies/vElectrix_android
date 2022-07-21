@@ -46,7 +46,7 @@ public class VenrouteDetailListAdapter extends RecyclerView.Adapter<VenrouteDeta
 
     @Override
     public void onBindViewHolder(MyviewHolder holder, int position) {
-        //holder.txtName.setText(brandsLists.get(position));
+        holder.txtName.setText(brandsLists.get(position).getModel()+"/n"+brandsLists.get(position).getBrandName());
 
         Glide.with(mContext)
                 .load(RestApi.BASE_URL+brandsLists.get(position).getVehicleImage().get(0))
