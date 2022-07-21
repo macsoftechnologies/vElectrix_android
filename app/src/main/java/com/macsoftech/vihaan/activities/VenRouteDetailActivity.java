@@ -12,7 +12,6 @@ import com.bumptech.glide.request.target.Target;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.api.RestApi;
 import com.macsoftech.vihaan.fragment.VenrouteBannerDetailFragment;
-import com.macsoftech.vihaan.fragment.VenrouteBannerFragment;
 
 public class VenRouteDetailActivity extends AppCompatActivity {
 
@@ -27,15 +26,15 @@ public class VenRouteDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_venroute_detail);
         getSupportActionBar().hide();
 
-       Intent intent =  getIntent();
+        Intent intent = getIntent();
 
         brandLogo = intent.getStringExtra("brandLogo");
         brandName = intent.getStringExtra("brandName");
 
-        imgBrandLogo =  (ImageView) findViewById(R.id.bannerLogo);
+        imgBrandLogo = (ImageView) findViewById(R.id.bannerLogo);
 
         Glide.with(this)
-                .load(RestApi.BASE_URL+brandLogo)
+                .load(RestApi.BASE_URL + brandLogo)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
                 .placeholder(R.drawable.nav_profile)
@@ -49,7 +48,7 @@ public class VenRouteDetailActivity extends AppCompatActivity {
         venrouteBannerDetailFragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment,venrouteBannerDetailFragment);
+        fragmentTransaction.replace(R.id.fragment, venrouteBannerDetailFragment);
         fragmentTransaction.commit();
 
     }

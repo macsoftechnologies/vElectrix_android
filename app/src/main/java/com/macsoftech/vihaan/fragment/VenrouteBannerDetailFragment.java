@@ -14,11 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.adapter.VenrouteDetailListAdapter;
-import com.macsoftech.vihaan.adapter.VenrouteListAdapter;
 import com.macsoftech.vihaan.api.RestApi;
-import com.macsoftech.vihaan.model.BrandListResponse;
 import com.macsoftech.vihaan.model.BrandResponse;
-import com.macsoftech.vihaan.model.BrandsList;
 import com.macsoftech.vihaan.model.GetBrandVehiclesResponse;
 
 import java.util.HashMap;
@@ -38,7 +35,7 @@ public class VenrouteBannerDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         brandName = getArguments().getString("brandName");
-        View  viewItem = inflater.inflate(R.layout.fragment_venroutebanners,container,false);
+        View viewItem = inflater.inflate(R.layout.fragment_venroutebanners, container, false);
         recyclerView = viewItem.findViewById(R.id.venroute_recycleView);
         return viewItem;
     }
@@ -47,13 +44,19 @@ public class VenrouteBannerDetailFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         Map<String, String> map = new HashMap<>();
         map.put("brandName", brandName);
         RestApi.getInstance().getService().getBrandVehicles(map).enqueue(new Callback<GetBrandVehiclesResponse>() {
             @Override
             public void onResponse(Call<GetBrandVehiclesResponse> call, Response<GetBrandVehiclesResponse> response) {
-                 List<BrandResponse> list = response.body().getBrandResponse().ge;
-                displayBannerItems(list,getActivity());
+                List<BrandResponse> list = response.body().getBrandResponse();
+                displayBannerItems(list, getActivity());
             }
 
             @Override
@@ -64,10 +67,10 @@ public class VenrouteBannerDetailFragment extends Fragment {
     }
 
 
-    private void  displayBannerItems(List<BrandResponse> list, Context mContext){
+    private void displayBannerItems(List<BrandResponse> list, Context mContext) {
 
-        VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list,mContext);
-        RecyclerView.LayoutManager linearLayout =  new LinearLayoutManager(mContext);
+        VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list, mContext);
+        RecyclerView.LayoutManager linearLayout = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(listAdapter);
 
