@@ -1,24 +1,19 @@
-package com.macsoftech.vihaan;
+package com.macsoftech.vihaan.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.adapter.MainListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends Activity {
 
@@ -33,7 +28,7 @@ public class MainActivity extends Activity {
             int position = viewHolder.getAdapterPosition();
             switch (position){
                 case 1:
-                    Intent intent = new Intent(MainActivity.this,VenRouteActivity.class);
+                    Intent intent = new Intent(MainActivity.this, VenRouteActivity.class);
                     startActivity(intent);
                     break;
             }

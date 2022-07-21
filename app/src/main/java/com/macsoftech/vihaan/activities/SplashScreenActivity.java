@@ -1,9 +1,11 @@
-package com.macsoftech.vihaan;
+package com.macsoftech.vihaan.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.macsoftech.vihaan.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -12,7 +14,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Intent intent = new Intent(SplashScreenActivity.this,MainActivity.class);
+        Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
         startActivity(intent);
 //        RestApi.getInstance().getService().brandList().enqueue(new Callback<BrandListResponse>() {
 //            @Override
