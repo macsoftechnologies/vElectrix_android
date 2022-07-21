@@ -1,5 +1,7 @@
 package com.macsoftech.vihaan.model;
 
+import java.util.List;
+
 public class BrandResponse {
     private String motor;
 
@@ -9,7 +11,7 @@ public class BrandResponse {
 
     private String batteryCasing;
 
-    private String[] vehicleImage;
+    private List<String> vehicleImage;
 
     private String colorId;
 
@@ -103,11 +105,11 @@ public class BrandResponse {
         this.batteryCasing = batteryCasing;
     }
 
-    public String[] getVehicleImage() {
+    public List<String> getVehicleImage() {
         return vehicleImage;
     }
 
-    public void setVehicleImage(String[] vehicleImage) {
+    public void setVehicleImage(List<String> vehicleImage) {
         this.vehicleImage = vehicleImage;
     }
 

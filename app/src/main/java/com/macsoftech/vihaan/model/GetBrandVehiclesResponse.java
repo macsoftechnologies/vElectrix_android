@@ -1,9 +1,11 @@
 package com.macsoftech.vihaan.model;
 
+import java.util.List;
+
 public class GetBrandVehiclesResponse {
     private String StatusCode;
 
-    private BrandResponse[] brandResponse;
+    private List<BrandResponse> brandResponse;
 
     public String getStatusCode() {
         return StatusCode;
@@ -13,11 +15,11 @@ public class GetBrandVehiclesResponse {
         this.StatusCode = StatusCode;
     }
 
-    public BrandResponse[] getBrandResponse() {
+    public List<BrandResponse> getBrandResponse() {
         return brandResponse;
     }
 
-    public void setBrandResponse(BrandResponse[] brandResponse) {
+    public void setBrandResponse(List<BrandResponse> brandResponse) {
         this.brandResponse = brandResponse;
     }
 

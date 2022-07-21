@@ -4,57 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".activities.SplashScreenActivity">
 
   <LinearLayout
-      android:id="@+id/venroute_title_layout"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:id="@+id/logo_layout"
       android:gravity="center"
-      android:orientation="horizontal">
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_margin="5dp"
-        android:textSize="@dimen/title_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/venroute" />
+    <ImageView
+        android:id="@+id/bannerLogo"
+        android:layout_width="200dp"
+        android:layout_marginTop="20sp"
+        android:src="@drawable/ve_logo_h"
+        android:adjustViewBounds="true"
+        android:layout_height="wrap_content"/>
   </LinearLayout>
 
   <FrameLayout
       android:id="@+id/fragment"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/venroute_title_layout"
-      >
-  </FrameLayout>
+      android:layout_above="@+id/ll_bottom_bar"
+      android:layout_below="@+id/venroute_title_layout" />
 
 
   <LinearLayout
+      android:id="@+id/ll_bottom_bar"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_height="80dp"
       android:layout_alignParentBottom="true"
       android:background="@drawable/nav_bg_1"
       android:gravity="center"
       android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="30dp"
+        android:layout_width="25dp"
         android:layout_height="30dp"
         android:layout_weight="1"
-        android:src="@drawable/nav_menu"></ImageView>
+        android:src="@drawable/nav_menu"/>
 
     <ImageView
-        android:layout_width="50dp"
+        android:layout_width="25dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:src="@drawable/nav_home"></ImageView>
+        android:src="@drawable/nav_home"/>
 
     <ImageView
-        android:layout_width="50dp"
+        android:layout_width="25dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:src="@drawable/nav_profile"></ImageView>
+        android:src="@drawable/nav_profile"/>
 
   </LinearLayout>
 

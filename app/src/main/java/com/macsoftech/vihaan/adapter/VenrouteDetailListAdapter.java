@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,18 +14,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.api.RestApi;
+import com.macsoftech.vihaan.model.BrandResponse;
 import com.macsoftech.vihaan.model.BrandsList;
 
 import java.util.List;
 
-public class VenrouteListAdapter extends RecyclerView.Adapter<VenrouteListAdapter.MyviewHolder> {
+public class VenrouteDetailListAdapter extends RecyclerView.Adapter<VenrouteDetailListAdapter.MyviewHolder> {
 
-    List<BrandsList> brandsLists;
+    List<BrandResponse> brandsLists;
     Context mContext;
     View.OnClickListener onItemClickListener;
 
 
-    public VenrouteListAdapter(List<BrandsList> list, Context nContext) {
+    public VenrouteDetailListAdapter(List<BrandResponse> list, Context nContext) {
         brandsLists = list;
         mContext = nContext;
     }
@@ -33,10 +35,11 @@ public class VenrouteListAdapter extends RecyclerView.Adapter<VenrouteListAdapte
         onItemClickListener = clickListener;
     }
 
+
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_venroutebanneritem,parent,false);
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_venroute_detail_item,parent,false);
         return new MyviewHolder(item);
     }
 
@@ -46,7 +49,7 @@ public class VenrouteListAdapter extends RecyclerView.Adapter<VenrouteListAdapte
         //holder.txtName.setText(brandsLists.get(position));
 
         Glide.with(mContext)
-                .load(RestApi.BASE_URL+brandsLists.get(position).getBrandImage())
+                .load(RestApi.BASE_URL+brandsLists.get(position).getVehicleImage().get(0))
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
                 .placeholder(R.drawable.nav_profile)
@@ -62,12 +65,12 @@ public class VenrouteListAdapter extends RecyclerView.Adapter<VenrouteListAdapte
 
     class MyviewHolder extends RecyclerView.ViewHolder {
 
-        //private TextView txtName;
+        private TextView txtName;
         private ImageView images;
 
         public MyviewHolder( View itemView) {
             super(itemView);
-            //txtName = itemView.findViewById(R.id.txt_title);
+            txtName = itemView.findViewById(R.id.txt_title);
             images = itemView.findViewById(R.id.image);
 
             itemView.setTag(this);
