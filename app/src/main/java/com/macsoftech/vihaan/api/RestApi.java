@@ -7,10 +7,10 @@ import android.os.Looper;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-
 import com.macsoftech.vihaan.BuildConfig;
 import com.macsoftech.vihaan.app.BaseApp;
 import com.macsoftech.vihaan.model.BrandListResponse;
+import com.macsoftech.vihaan.model.GetBrandVehiclesResponse;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +38,9 @@ import okio.BufferedSink;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Url;
 
 /**
@@ -48,7 +50,6 @@ import retrofit2.http.Url;
 public class RestApi {
 
     private static final String CACHE_CONTROL = "Cache-Control";
-
 
 
     public static String BASE_URL = "http://3.110.245.101:3000/";
@@ -65,7 +66,6 @@ public class RestApi {
     public MyService getService() {
         return buildAdapter(BASE_URL, buildOkHttpClient(), MyService.class);
     }
-
 
 
     private OkHttpClient buildOkHttpClient() {
@@ -154,7 +154,6 @@ public class RestApi {
     }
 
 
-
     public static Map<String, RequestBody> prepareBodyPart(Map<String, String> map) {
         // add another part within the multipart request
         Map<String, RequestBody> partMap = new HashMap<>();
@@ -189,7 +188,6 @@ public class RestApi {
     }
 
 
-
     public interface MyService {
 
         @GET
@@ -197,6 +195,9 @@ public class RestApi {
 
         @GET("brand/brandList")
         Call<BrandListResponse> brandList();
+
+        @POST("color-mapping/getBrandVehicles")
+        Call<GetBrandVehiclesResponse> getBrandVehicles(@Body Map<String, String> body);
 
 
     }
