@@ -10,6 +10,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.macsoftech.vihaan.BuildConfig;
 import com.macsoftech.vihaan.app.BaseApp;
 import com.macsoftech.vihaan.model.BrandListResponse;
+import com.macsoftech.vihaan.model.ColorMappingVehicleSpecification;
 import com.macsoftech.vihaan.model.GetBrandVehiclesResponse;
 
 import java.io.File;
@@ -199,6 +200,8 @@ public class RestApi {
         @POST("color-mapping/getBrandVehicles")
         Call<GetBrandVehiclesResponse> getBrandVehicles(@Body Map<String, String> body);
 
+        @POST("color-mapping/getSpec")
+        Call<ColorMappingVehicleSpecification> getBikeSpec(@Body Map<String, String> body);
 
     }
 

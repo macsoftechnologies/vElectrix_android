@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.SplashScreenActivity">
+
+  <LinearLayout
+      android:id="@+id/logo_layout"
+      android:gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/bannerLogo"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20sp"
+        android:src="@drawable/ve_logo_h"
+        android:layout_height="100dp"/>
+  </LinearLayout>
+
+  <FrameLayout
+      android:id="@+id/fragment"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/ll_bottom_bar"
+      android:layout_below="@+id/logo_layout" />
+
+
+  <LinearLayout
+      android:visibility="gone"
+      tools:visibility="visible"
+      android:id="@+id/ll_bottom_bar"
+      android:layout_width="match_parent"
+      android:layout_height="80dp"
+      android:layout_alignParentBottom="true"
+      android:background="@drawable/nav_bg_1"
+      android:gravity="center"
+      android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:src="@drawable/nav_menu"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/nav_home"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:src="@drawable/nav_profile"/>
+
+  </LinearLayout>
+
+</RelativeLayout>

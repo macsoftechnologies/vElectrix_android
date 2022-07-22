@@ -1,6 +1,7 @@
 package com.macsoftech.vihaan.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,21 @@ public class VenrouteBannerDetailFragment extends Fragment {
 
     RecyclerView recyclerView;
     private String brandName;
+    private List<BrandResponse> list;
+
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder)v.getTag();
+            int position = viewHolder.getAdapterPosition();
+            BrandResponse item = list.get(position);
+            Intent intent = new Intent(getActivity(), VenrouteBikeDetailFragment.class);
+            intent.putExtra("vehicleId",item.getVehicleId());
+            startActivity(intent);
+
+        }
+    };
 
     @Nullable
     @Override
@@ -43,7 +59,6 @@ public class VenrouteBannerDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -67,12 +82,14 @@ public class VenrouteBannerDetailFragment extends Fragment {
     }
 
 
+
     private void displayBannerItems(List<BrandResponse> list, Context mContext) {
 
         VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list, mContext);
         RecyclerView.LayoutManager linearLayout = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(listAdapter);
+        listAdapter.onItemClickListener(clickListener);
 
 
     }

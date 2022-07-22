@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.SplashScreenActivity">
+
+    <LinearLayout
+        android:id="@+id/venroute_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:textSize="@dimen/title_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/book_test_drive" />
+
+    </LinearLayout>
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="text" />
+
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adhar_no" />
+
+    <EditText
+        android:id="@+id/edit_adharno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTACT NO:" />
+
+    <EditText
+        android:id="@+id/edit_contactno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS1" />
+
+    <EditText
+        android:id="@+id/edit_addrs1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADDRESS 2" />
+
+    <EditText
+        android:id="@+id/edit_addrs2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="text" />
+
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LAND MARK :" />
+
+    <EditText
+        android:id="@+id/edit_lmark"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="text" />
+
+
+    <TextView
+        android:gravity="left"
+        android:layout_margin="5dp"
+        android:textSize="@dimen/sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CITY :" />
+
+    <EditText
+        android:id="@+id/edit_city"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/edt_dime"
+        android:ems="10"
+        android:inputType="text" />
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        ></Button>
+
+</LinearLayout>

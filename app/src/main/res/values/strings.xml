@@ -3,4 +3,7 @@
     <string name="view_less">View Less</string>
     <string name="view_more">View More</string>
     <string name="venroute">VENROUTE</string>
+    <string name="book_test_drive">BOOK TEST DRIVE</string>
+    <string name="name">NAME</string>
+    <string name="adhar_no">ADHAR NO:</string>
 </resources>

@@ -27,6 +27,8 @@
         <activity android:name=".activities.MainActivity"></activity>
         <activity android:name=".activities.VenRouteActivity"></activity>
         <activity android:name=".activities.VenRouteDetailActivity"></activity>
+        <activity android:name=".activities.VenRouteBikeDetailActivity"></activity>
+        <activity android:name=".activities.BookTestDriveActivity"></activity>
     </application>
 
 </manifest>
