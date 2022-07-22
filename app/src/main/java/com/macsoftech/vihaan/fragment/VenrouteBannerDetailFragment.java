@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.macsoftech.vihaan.R;
+import com.macsoftech.vihaan.activities.VenRouteBikeDetailActivity;
 import com.macsoftech.vihaan.adapter.VenrouteDetailListAdapter;
 import com.macsoftech.vihaan.api.RestApi;
 import com.macsoftech.vihaan.model.BrandResponse;
@@ -37,11 +38,12 @@ public class VenrouteBannerDetailFragment extends Fragment {
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder)v.getTag();
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
             int position = viewHolder.getAdapterPosition();
             BrandResponse item = list.get(position);
-            Intent intent = new Intent(getActivity(), VenrouteBikeDetailFragment.class);
-            intent.putExtra("vehicleId",item.getVehicleId());
+//            Intent intent = new Intent(getActivity(), VenrouteBikeDetailFragment.class);
+            Intent intent = new Intent(getActivity(), VenRouteBikeDetailActivity.class);
+            intent.putExtra("vehicleId", item.getVehicleId());
             startActivity(intent);
 
         }
@@ -70,7 +72,7 @@ public class VenrouteBannerDetailFragment extends Fragment {
         RestApi.getInstance().getService().getBrandVehicles(map).enqueue(new Callback<GetBrandVehiclesResponse>() {
             @Override
             public void onResponse(Call<GetBrandVehiclesResponse> call, Response<GetBrandVehiclesResponse> response) {
-                List<BrandResponse> list = response.body().getBrandResponse();
+                list = response.body().getBrandResponse();
                 displayBannerItems(list, getActivity());
             }
 
@@ -80,7 +82,6 @@ public class VenrouteBannerDetailFragment extends Fragment {
             }
         });
     }
-
 
 
     private void displayBannerItems(List<BrandResponse> list, Context mContext) {

@@ -21,7 +21,6 @@ import com.bumptech.glide.request.target.Target;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.activities.BookTestDriveActivity;
 import com.macsoftech.vihaan.activities.VenRouteBikeDetailActivity;
-import com.macsoftech.vihaan.activities.VenRouteDetailActivity;
 import com.macsoftech.vihaan.api.RestApi;
 import com.macsoftech.vihaan.model.BrandResponse;
 import com.macsoftech.vihaan.model.ColorMappingResponse;
@@ -48,11 +47,11 @@ public class VenrouteBikeDetailFragment extends Fragment {
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder)v.getTag();
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
             int position = viewHolder.getAdapterPosition();
             BrandResponse item = list.get(position);
             Intent intent = new Intent(getActivity(), VenRouteBikeDetailActivity.class);
-            intent.putExtra("vehicleId",item.getVehicleId());
+            intent.putExtra("vehicleId", item.getVehicleId());
             startActivity(intent);
 
         }
@@ -65,7 +64,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
         View viewItem = inflater.inflate(R.layout.fragment_venroute_bike_detail, container, false);
         viewPager = viewItem.findViewById(R.id.view_pager);
         tBookTestDrive = viewItem.findViewById(R.id.book_test_drive);
-       // dot2 =  viewItem.findViewById(R.id.dot2);
+        // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
     }
 
@@ -104,11 +103,12 @@ public class VenrouteBikeDetailFragment extends Fragment {
         });
 
     }
+
     private void displayBannerItems(List<ColorMappingResponse> list, Context mContext) {
 
-        viewAdapter=new ViewAdapter(mContext,list);
+        viewAdapter = new ViewAdapter(mContext, list);
         viewPager.setAdapter(viewAdapter);
-       // dot2.setViewPager(viewPager);
+        // dot2.setViewPager(viewPager);
 
 //        VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list, mContext);
 //        RecyclerView.LayoutManager linearLayout = new LinearLayoutManager(mContext);
@@ -126,13 +126,9 @@ public class VenrouteBikeDetailFragment extends Fragment {
         //private Integer[] images={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
         List<String> imageList;
 
-        public ViewAdapter(Context context)
-        {
-            this.context=context;
-        }
-
         public ViewAdapter(Context mContext, List<ColorMappingResponse> list) {
-            if(list != null) {
+            this.context = mContext;
+            if (list != null) {
                 imageList = list.get(0).getVehicleImage();
             }
         }
@@ -144,16 +140,16 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
         @Override
         public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view==object;
+            return view == object;
         }
 
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            layoutInflater=(LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE
+            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE
             );
-            View view =layoutInflater.inflate(R.layout.viewpager_item,null);
-            ImageView imageView=view.findViewById(R.id.view_pager_image);
+            View view = layoutInflater.inflate(R.layout.viewpager_item, null);
+            ImageView imageView = view.findViewById(R.id.view_pager_image);
             //imageView.setImageResource(imageList.get(position));
 
             Glide.with(getActivity())
@@ -164,15 +160,15 @@ public class VenrouteBikeDetailFragment extends Fragment {
                     .error(R.drawable.nav_profile)
                     .into((imageView));
 
-            ViewPager viewPager=(ViewPager) container;
-            viewPager.addView(view,0);
+            ViewPager viewPager = (ViewPager) container;
+            viewPager.addView(view, 0);
             return view;
         }
 
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            ViewPager viewPager=(ViewPager) container;
-            View view=(View) object;
+            ViewPager viewPager = (ViewPager) container;
+            View view = (View) object;
             viewPager.removeView(view);
         }
     }
