@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.macsoftech.vihaan.R;
 
 public class BookTestDriveActivity extends AppCompatActivity {
@@ -31,10 +29,17 @@ public class BookTestDriveActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = eName.getText().toString();
+                String adharNO = eAdharNo.getText().toString();
+                String contactNo = eContactNo.getText().toString();
+                String address1 = eAddress1.getText().toString();
+                String address2 = eAddress2.getText().toString();
+                String landMark = eLandmark.getText().toString();
+                String city = eCity.getText().toString();
 
 
+                
             }
         });
-
     }
 }

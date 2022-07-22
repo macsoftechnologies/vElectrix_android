@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/edt_dime"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="text" />
 
     <TextView
         android:gravity="left"
