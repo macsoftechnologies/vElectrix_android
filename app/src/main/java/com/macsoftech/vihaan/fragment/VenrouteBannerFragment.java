@@ -3,7 +3,6 @@ package com.macsoftech.vihaan.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.macsoftech.vihaan.R;
-import com.macsoftech.vihaan.activities.MainActivity;
-import com.macsoftech.vihaan.activities.VenRouteActivity;
 import com.macsoftech.vihaan.activities.VenRouteDetailActivity;
 import com.macsoftech.vihaan.adapter.VenrouteListAdapter;
 import com.macsoftech.vihaan.api.RestApi;
@@ -36,13 +34,14 @@ public class VenrouteBannerFragment extends Fragment {
     private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder)v.getTag();
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
             int position = viewHolder.getAdapterPosition();
-            BrandsList  item = list.get(position);
-                    Intent intent = new Intent(getActivity(), VenRouteDetailActivity.class);
-                      intent.putExtra("brandLogo",item.getLogo());
-                      intent.putExtra("brandName",item.getBrandName());
-                     startActivity(intent);
+            BrandsList item = list.get(position);
+            Intent intent = new Intent(getActivity(), VenRouteDetailActivity.class);
+            intent.putExtra("brandLogo", item.getLogo());
+            intent.putExtra("brandName", item.getBrandName());
+            intent.putExtra("data", item);
+            startActivity(intent);
 
         }
     };
@@ -51,7 +50,7 @@ public class VenrouteBannerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View  viewItem = inflater.inflate(R.layout.fragment_venroutebanners,container,false);
+        View viewItem = inflater.inflate(R.layout.fragment_venroutebanners, container, false);
         recyclerView = viewItem.findViewById(R.id.venroute_recycleView);
         return viewItem;
     }
@@ -65,7 +64,7 @@ public class VenrouteBannerFragment extends Fragment {
             @Override
             public void onResponse(Call<BrandListResponse> call, Response<BrandListResponse> response) {
 
-                 list = response.body().getData().getBrandsList();
+                list = response.body().getData().getBrandsList();
                 displayDetails(list, getActivity());
             }
 
@@ -76,11 +75,10 @@ public class VenrouteBannerFragment extends Fragment {
     }
 
 
+    private void displayDetails(List<BrandsList> list, Context mContext) {
 
-    private void  displayDetails(List<BrandsList> list, Context mContext){
-
-        VenrouteListAdapter listAdapter = new VenrouteListAdapter(list,mContext);
-        RecyclerView.LayoutManager linearLayout =  new LinearLayoutManager(mContext);
+        VenrouteListAdapter listAdapter = new VenrouteListAdapter(list, mContext);
+        RecyclerView.LayoutManager linearLayout = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(listAdapter);
         listAdapter.onItemClickListener(clickListener);

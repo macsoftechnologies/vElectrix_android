@@ -1,6 +1,9 @@
 package com.macsoftech.vihaan.model;
 
-public class BrandsList {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BrandsList implements Parcelable {
     private String createdAt;
 
     private String brandName;
@@ -16,6 +19,29 @@ public class BrandsList {
     private String _id;
 
     private String updatedAt;
+
+    protected BrandsList(Parcel in) {
+        createdAt = in.readString();
+        brandName = in.readString();
+        brandImage = in.readString();
+        brandId = in.readString();
+        __v = in.readString();
+        logo = in.readString();
+        _id = in.readString();
+        updatedAt = in.readString();
+    }
+
+    public static final Creator<BrandsList> CREATOR = new Creator<BrandsList>() {
+        @Override
+        public BrandsList createFromParcel(Parcel in) {
+            return new BrandsList(in);
+        }
+
+        @Override
+        public BrandsList[] newArray(int size) {
+            return new BrandsList[size];
+        }
+    };
 
     public String getCreatedAt() {
         return createdAt;
@@ -84,5 +110,22 @@ public class BrandsList {
     @Override
     public String toString() {
         return "ClassPojo [createdAt = " + createdAt + ", brandName = " + brandName + ", brandImage = " + brandImage + ", brandId = " + brandId + ", __v = " + __v + ", logo = " + logo + ", _id = " + _id + ", updatedAt = " + updatedAt + "]";
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(createdAt);
+        parcel.writeString(brandName);
+        parcel.writeString(brandImage);
+        parcel.writeString(brandId);
+        parcel.writeString(__v);
+        parcel.writeString(logo);
+        parcel.writeString(_id);
+        parcel.writeString(updatedAt);
     }
 }

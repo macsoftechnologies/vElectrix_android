@@ -22,13 +22,13 @@
         android:layout_height="wrap_content">
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/txt_title"
         android:layout_gravity="center_vertical|center"
         android:gravity="center"
         android:layout_weight="1"
-        android:text="VENTURE"
+        android:text="@string/venture"
         android:textSize="20sp"
+        android:fontFamily="@font/lato_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </TextView>

@@ -21,30 +21,31 @@
         android:layout_height="wrap_content"/>
   </LinearLayout>
 
-  <LinearLayout
-      android:id="@+id/list_layout"
-      android:layout_above="@+id/ll_bottom_bar"
+  <FrameLayout
+      android:id="@+id/container"
+      android:layout_above="@+id/nav_view"
       android:layout_below="@+id/logo_layout"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listview"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+
 <!--  <ListView-->
 <!--      android:layout_margin="5dp"-->
 <!--      android:layout_width="match_parent"-->
 <!--      android:layout_height="500dp">-->
 <!--  </ListView>-->
-</LinearLayout>
 
+
+  <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
+      android:id="@+id/nav_view"
+      app:cbn_selectedColor="@color/teal_700"
+      app:cbn_unSelectedColor="@color/black"
+      android:layout_alignParentBottom="true"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
     <LinearLayout
-        android:visibility="visible"
+        android:visibility="gone"
         android:gravity="center"
         android:id="@+id/ll_bottom_bar"
         android:layout_alignParentBottom="true"

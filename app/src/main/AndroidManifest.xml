@@ -24,11 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.VenRouteActivity"></activity>
-        <activity android:name=".activities.VenRouteDetailActivity"></activity>
-        <activity android:name=".activities.VenRouteBikeDetailActivity"></activity>
-        <activity android:name=".activities.BookTestDriveActivity"></activity>
+        <activity android:name=".activities.DashboardJavaActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name=".activities.VenRouteActivity" android:screenOrientation="sensorPortrait"></activity>
+        <activity android:name=".activities.VenRouteDetailActivity" android:screenOrientation="sensorPortrait"></activity>
+        <activity android:name=".activities.VenRouteBikeDetailActivity" android:screenOrientation="sensorPortrait"></activity>
+        <activity android:name=".activities.BookTestDriveActivity" android:screenOrientation="sensorPortrait"></activity>
+        <activity android:name=".activities.DashBoardActivity" android:screenOrientation="sensorPortrait"/>
     </application>
 
 </manifest>

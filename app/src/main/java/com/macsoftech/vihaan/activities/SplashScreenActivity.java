@@ -2,30 +2,27 @@ package com.macsoftech.vihaan.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Handler;
 
 import com.macsoftech.vihaan.R;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        getSupportActionBar().hide();
 
-        Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-        startActivity(intent);
-//        RestApi.getInstance().getService().brandList().enqueue(new Callback<BrandListResponse>() {
-//            @Override
-//            public void onResponse(Call<BrandListResponse> call, Response<BrandListResponse> response) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BrandListResponse> call, Throwable t) {
-//
-//            }
-//        });
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashScreenActivity.this, DashBoardActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 1000);
+
+
     }
 }

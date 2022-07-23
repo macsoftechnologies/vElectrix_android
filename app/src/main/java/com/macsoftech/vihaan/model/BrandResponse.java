@@ -1,8 +1,11 @@
 package com.macsoftech.vihaan.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class BrandResponse {
+public class BrandResponse implements Parcelable {
     private String motor;
 
     private String throttle;
@@ -72,6 +75,56 @@ public class BrandResponse {
     private String gradeablity;
 
     private String _id;
+
+    protected BrandResponse(Parcel in) {
+        motor = in.readString();
+        throttle = in.readString();
+        vehicleName = in.readString();
+        batteryCasing = in.readString();
+        vehicleImage = in.createStringArrayList();
+        colorId = in.readString();
+        mudGuards = in.readString();
+        bms = in.readString();
+        blinkers = in.readString();
+        storage = in.readString();
+        battery = in.readString();
+        ladiesFootrest = in.readString();
+        tyre = in.readString();
+        chargerOutput = in.readString();
+        createdAt = in.readString();
+        security = in.readString();
+        rim = in.readString();
+        __v = in.readString();
+        externalChargingPort = in.readString();
+        model = in.readString();
+        vehicleId = in.readString();
+        regenerativeBraking = in.readString();
+        updatedAt = in.readString();
+        controller = in.readString();
+        headLamp = in.readString();
+        brakeLights = in.readString();
+        amount = in.readString();
+        brandName = in.readString();
+        display = in.readString();
+        seat = in.readString();
+        brake = in.readString();
+        cells = in.readString();
+        reflector = in.readString();
+        gradeablity = in.readString();
+        _id = in.readString();
+    }
+
+    public static final Creator<BrandResponse> CREATOR = new Creator<BrandResponse>() {
+        @Override
+        public BrandResponse createFromParcel(Parcel in) {
+            return new BrandResponse(in);
+        }
+
+        @Override
+        public BrandResponse[] newArray(int size) {
+            return new BrandResponse[size];
+        }
+    };
 
     public String getMotor() {
         return motor;
@@ -356,5 +409,49 @@ public class BrandResponse {
     @Override
     public String toString() {
         return "ClassPojo [motor = " + motor + ", throttle = " + throttle + ", vehicleName = " + vehicleName + ", batteryCasing = " + batteryCasing + ", vehicleImage = " + vehicleImage + ", colorId = " + colorId + ", mudGuards = " + mudGuards + ", bms = " + bms + ", blinkers = " + blinkers + ", storage = " + storage + ", battery = " + battery + ", ladiesFootrest = " + ladiesFootrest + ", tyre = " + tyre + ", chargerOutput = " + chargerOutput + ", createdAt = " + createdAt + ", security = " + security + ", rim = " + rim + ", __v = " + __v + ", externalChargingPort = " + externalChargingPort + ", model = " + model + ", vehicleId = " + vehicleId + ", regenerativeBraking = " + regenerativeBraking + ", updatedAt = " + updatedAt + ", controller = " + controller + ", headLamp = " + headLamp + ", brakeLights = " + brakeLights + ", amount = " + amount + ", brandName = " + brandName + ", display = " + display + ", seat = " + seat + ", brake = " + brake + ", cells = " + cells + ", reflector = " + reflector + ", gradeablity = " + gradeablity + ", _id = " + _id + "]";
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(motor);
+        parcel.writeString(throttle);
+        parcel.writeString(vehicleName);
+        parcel.writeString(batteryCasing);
+        parcel.writeStringList(vehicleImage);
+        parcel.writeString(colorId);
+        parcel.writeString(mudGuards);
+        parcel.writeString(bms);
+        parcel.writeString(blinkers);
+        parcel.writeString(storage);
+        parcel.writeString(battery);
+        parcel.writeString(ladiesFootrest);
+        parcel.writeString(tyre);
+        parcel.writeString(chargerOutput);
+        parcel.writeString(createdAt);
+        parcel.writeString(security);
+        parcel.writeString(rim);
+        parcel.writeString(__v);
+        parcel.writeString(externalChargingPort);
+        parcel.writeString(model);
+        parcel.writeString(vehicleId);
+        parcel.writeString(regenerativeBraking);
+        parcel.writeString(updatedAt);
+        parcel.writeString(controller);
+        parcel.writeString(headLamp);
+        parcel.writeString(brakeLights);
+        parcel.writeString(amount);
+        parcel.writeString(brandName);
+        parcel.writeString(display);
+        parcel.writeString(seat);
+        parcel.writeString(brake);
+        parcel.writeString(cells);
+        parcel.writeString(reflector);
+        parcel.writeString(gradeablity);
+        parcel.writeString(_id);
     }
 }

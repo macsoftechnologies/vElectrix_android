@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
 }
+apply plugin: 'kotlin-android'
+
 
 android {
     compileSdkVersion 32
@@ -26,10 +28,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -54,6 +60,13 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:3.0.1'
     //implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
 
+    //FONT
+//    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+//    implementation 'io.github.inflationx:viewpump:2.0.3'
+
+
+    implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
+    implementation("com.tbuonomo:dotsindicator:4.3")
 
 
 }

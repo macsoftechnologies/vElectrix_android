@@ -8,7 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.macsoftech.vihaan.R;
 
-public class BookTestDriveActivity extends AppCompatActivity {
+public class BookTestDriveActivity extends BaseActivity {
 
     EditText eName,eContactNo,eAdharNo,eAddress1,eAddress2,eLandmark,eCity;
 

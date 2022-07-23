@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -20,11 +19,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.activities.BookTestDriveActivity;
-import com.macsoftech.vihaan.activities.VenRouteBikeDetailActivity;
 import com.macsoftech.vihaan.api.RestApi;
 import com.macsoftech.vihaan.model.BrandResponse;
 import com.macsoftech.vihaan.model.ColorMappingResponse;
 import com.macsoftech.vihaan.model.ColorMappingVehicleSpecification;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,32 +37,41 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
     //RecyclerView recyclerView;
     private String vehId;
+    private BrandResponse data;
     private List<BrandResponse> list;
+    TextView price;
+    TextView logo_model_name;
     ViewPager viewPager;
+    DotsIndicator dots_indicator;
     ViewAdapter viewAdapter;
     //SpringDotsIndicator dot2;
     TextView tBookTestDrive;
 
-    private View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
-            int position = viewHolder.getAdapterPosition();
-            BrandResponse item = list.get(position);
-            Intent intent = new Intent(getActivity(), VenRouteBikeDetailActivity.class);
-            intent.putExtra("vehicleId", item.getVehicleId());
-            startActivity(intent);
-
-        }
-    };
+//    private View.OnClickListener clickListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
+//            int position = viewHolder.getAdapterPosition();
+//            BrandResponse item = list.get(position);
+//            Intent intent = new Intent(getActivity(), VenRouteBikeDetailActivity.class);
+//            intent.putExtra("vehicleId", item.getVehicleId());
+//            intent.putExtra("data", item);
+//            startActivity(intent);
+//
+//        }
+//    };
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         vehId = getArguments().getString("vehicleId");
+        data = getArguments().getParcelable("data");
         View viewItem = inflater.inflate(R.layout.fragment_venroute_bike_detail, container, false);
         viewPager = viewItem.findViewById(R.id.view_pager);
         tBookTestDrive = viewItem.findViewById(R.id.book_test_drive);
+        dots_indicator = viewItem.findViewById(R.id.dots_indicator);
+        logo_model_name = viewItem.findViewById(R.id.logo_model_name);
+        price = viewItem.findViewById(R.id.price);
         // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
     }
@@ -77,7 +85,8 @@ public class VenrouteBikeDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        logo_model_name.setText(data.getModel());
+        price.setText("Rs." + data.getAmount());
         tBookTestDrive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +117,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
         viewAdapter = new ViewAdapter(mContext, list);
         viewPager.setAdapter(viewAdapter);
+        dots_indicator.attachTo(viewPager);
         // dot2.setViewPager(viewPager);
 
 //        VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list, mContext);

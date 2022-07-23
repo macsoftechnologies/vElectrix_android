@@ -9,14 +9,15 @@ import androidx.fragment.app.FragmentTransaction;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.fragment.VenrouteBannerFragment;
 
-public class VenRouteActivity extends AppCompatActivity {
+public class VenRouteActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_venroute);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
+        getSupportActionBar().setTitle("VENROUTE");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //VenrouteBannerFragment venrouteBannerFragment = new VenrouteBannerFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

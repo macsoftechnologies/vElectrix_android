@@ -2,7 +2,9 @@ package com.macsoftech.vihaan.app;
 
 import androidx.multidex.MultiDexApplication;
 
+import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.helper.Helper;
+
 
 
 /**
@@ -18,6 +20,13 @@ public class BaseApp extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         instance = this;
+//        ViewPump.init(ViewPump.builder()
+//                .addInterceptor(new CalligraphyInterceptor(
+//                        new CalligraphyConfig.Builder()
+//                                .setDefaultFontPath("fonts/Lato-Regular.ttf")
+//                                .setFontAttrId(R.attr.fontPath)
+//                                .build()))
+//                .build());
 
     }
 

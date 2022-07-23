@@ -6,4 +6,6 @@
     <string name="book_test_drive">BOOK TEST DRIVE</string>
     <string name="name">NAME</string>
     <string name="adhar_no">ADHAR NO:</string>
+    <string name="nav_title_format"><b>%s</b>%s</string>
+    <string name="venture"><b>VE</b>NTURE</string>
 </resources>
