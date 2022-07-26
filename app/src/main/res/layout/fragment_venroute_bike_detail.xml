@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -64,16 +72,17 @@
         android:layout_marginTop="20dp"
         android:id="@+id/price"
         android:textColor="@color/white"
-        android:padding="10dp"
+        android:padding="15dp"
         android:background="@drawable/detials_side_bg"
         android:textSize="@dimen/title_size"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Rs. 6,00,000" />
 
   </LinearLayout>
 
   <LinearLayout
+      android:layout_marginTop="10dp"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content">
 
@@ -81,11 +90,11 @@
       <TextView
           android:id="@+id/datasheet"
           android:layout_marginTop="5dp"
-          android:padding="10dp"
+          android:padding="15dp"
           android:textSize="@dimen/title_size"
           android:textColor="@color/white"
           android:background="@drawable/detials_side_bg"
-          android:layout_width="wrap_content"
+          android:layout_width="160dp"
           android:layout_height="wrap_content"
           android:text="DATA SHEET" />
 
@@ -129,10 +138,6 @@
 
 </LinearLayout>
 
-
-
-
-
-
-
 </LinearLayout>
+
+</ScrollView>

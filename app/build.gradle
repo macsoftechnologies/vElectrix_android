@@ -64,7 +64,7 @@ dependencies {
 //    implementation 'io.github.inflationx:calligraphy3:3.1.1'
 //    implementation 'io.github.inflationx:viewpump:2.0.3'
 
-
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
     implementation("com.tbuonomo:dotsindicator:4.3")
 

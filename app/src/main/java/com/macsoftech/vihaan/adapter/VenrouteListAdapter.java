@@ -1,6 +1,8 @@
 package com.macsoftech.vihaan.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -76,8 +79,9 @@ public class VenrouteListAdapter extends RecyclerView.Adapter<VenrouteListAdapte
                 .load(RestApi.BASE_URL + brandsLists.get(position).getBrandImage())
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
-                .placeholder(R.drawable.nav_profile)
-                .error(R.drawable.nav_profile)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .placeholder(new ColorDrawable(Color.parseColor("#ECE4E4")))
+                .error(R.drawable.app_icon_grey)
 //                .apply(requestOptions)
                 .into((holder.images));
 

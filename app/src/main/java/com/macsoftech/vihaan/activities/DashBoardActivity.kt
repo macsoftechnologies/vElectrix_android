@@ -4,6 +4,8 @@ import android.os.Bundle
 import butterknife.ButterKnife
 import com.macsoftech.vihaan.R
 import com.macsoftech.vihaan.fragment.DashboardFragment
+import com.macsoftech.vihaan.fragment.HomeFragment
+import com.macsoftech.vihaan.fragment.ProfileFragment
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
 
@@ -35,9 +37,22 @@ public class DashBoardActivity : BaseActivity() {
         if (index == 0) {
             supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.container, DashboardFragment())
                 .commitAllowingStateLoss()
+        } else if (index == 1) {
+            supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(R.id.container, HomeFragment())
+                .commitAllowingStateLoss()
+
         } else {
+            supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(R.id.container, ProfileFragment())
+                .commitAllowingStateLoss()
 
         }
 

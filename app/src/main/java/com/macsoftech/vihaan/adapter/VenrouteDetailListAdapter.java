@@ -52,8 +52,8 @@ public class VenrouteDetailListAdapter extends RecyclerView.Adapter<VenrouteDeta
                 .load(RestApi.BASE_URL + brandsLists.get(position).getVehicleImage().get(0))
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
-                .placeholder(R.drawable.nav_profile)
-                .error(R.drawable.nav_profile)
+//                .placeholder(R.drawable.nav_profile)
+//                .error(R.drawable.nav_profile)
                 .into((holder.images));
 
     }

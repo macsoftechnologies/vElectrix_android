@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +34,8 @@ import retrofit2.Response;
 public class VenrouteBannerDetailFragment extends Fragment {
 
     RecyclerView recyclerView;
+    @BindView(R.id.progressBar)
+    ProgressBar progressBar;
     private String brandName;
     private List<BrandResponse> list;
 
@@ -59,27 +64,28 @@ public class VenrouteBannerDetailFragment extends Fragment {
         return viewItem;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
+        progressBar.setVisibility(View.VISIBLE);
         Map<String, String> map = new HashMap<>();
         map.put("brandName", brandName);
         RestApi.getInstance().getService().getBrandVehicles(map).enqueue(new Callback<GetBrandVehiclesResponse>() {
             @Override
             public void onResponse(Call<GetBrandVehiclesResponse> call, Response<GetBrandVehiclesResponse> response) {
-                list = response.body().getBrandResponse();
-                displayBannerItems(list, getActivity());
+                progressBar.setVisibility(View.GONE);
+                if (response.isSuccessful()) {
+                    list = response.body().getBrandResponse();
+                    displayBannerItems(list, getActivity());
+                }
+
             }
 
             @Override
             public void onFailure(Call<GetBrandVehiclesResponse> call, Throwable t) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

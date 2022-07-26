@@ -28,13 +28,21 @@
           android:layout_gravity="center_vertical|center"
           android:gravity="center"
           android:text="Model"
-          android:textSize="20sp"
+          android:padding="10dp"
+          android:textSize="18sp"
           android:layout_width="match_parent"
           android:layout_height="wrap_content">
       </TextView>
 
+      <View
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#E3E3E3"
+          />
+
     <ImageView
-        android:layout_margin="10dp"
         android:id="@+id/image"
         android:layout_gravity="center_vertical|center"
         android:src="@drawable/nav_home"
@@ -43,20 +51,32 @@
         android:layout_height="200dp">
     </ImageView>
 
+      <View
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#E3E3E3"
+          />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
       <TextView
+          android:layout_margin="15dp"
           android:textStyle="bold"
           android:layout_gravity="center_vertical|center"
           android:gravity="center"
           android:layout_weight="1"
           android:text="More Details"
-          android:textSize="20sp"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
+          android:textSize="16sp"
+          android:background="@drawable/more_details_buttin_bg"
+          android:padding="10dp"
+          android:textColor="@color/white"
+          android:layout_width="150dp"
+          android:layout_height="50dp">
       </TextView>
     </LinearLayout>
 

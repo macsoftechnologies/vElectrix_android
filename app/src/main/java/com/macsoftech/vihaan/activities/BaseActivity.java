@@ -1,5 +1,6 @@
 package com.macsoftech.vihaan.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -33,6 +34,30 @@ public class BaseActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+    private ProgressDialog progressDialog;
+
+    public void showProgress() {
+        showProgress("Please wait..");
+    }
+
+    public void showProgress(String title) {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(this);
+        }
+        progressDialog.setMessage(title);
+        progressDialog.setCanceledOnTouchOutside(false);
+        if (!isFinishing()) {
+            progressDialog.show();
+        } else {
+            progressDialog = null;
+        }
+    }
+
+    public void hideDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+        }
     }
 }
 
