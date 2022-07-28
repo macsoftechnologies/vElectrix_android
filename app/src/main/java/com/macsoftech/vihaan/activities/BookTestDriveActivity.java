@@ -69,12 +69,13 @@ public class BookTestDriveActivity extends BaseActivity {
         map.put("area", address2);
         map.put("landmark", landMark);
         map.put("city", city);
-
+        showProgress();
 
         RestApi.getInstance().getService().bookRide(prepareBodyPart(map))
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        hideDialog();
                         if (response.isSuccessful()) {
                             showToast("Book Ride Successfully.");
                             finish();
@@ -83,17 +84,17 @@ public class BookTestDriveActivity extends BaseActivity {
 
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                        hideDialog();
                     }
                 });
 
-        showProgress();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                success();
-            }
-        }, 2000);
+//        showProgress();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                success();
+//            }
+//        }, 2000);
     }
 
     private void success() {
