@@ -131,7 +131,8 @@ public class DashboardFragment extends Fragment {
                 if (label.equalsIgnoreCase(values[0])) {
 //                    Intent intent = new Intent(getActivity(), VenRouteActivity.class);
 //                    startActivity(intent);
-                    iv_logo.setImageResource(R.drawable.pop_up_02);
+//                    iv_logo.setImageResource(R.drawable.pop_up_02);
+                    iv_logo.setImageResource(R.drawable.pop_up_01);
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {

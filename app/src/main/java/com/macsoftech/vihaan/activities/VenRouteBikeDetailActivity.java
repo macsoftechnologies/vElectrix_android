@@ -16,9 +16,9 @@ public class VenRouteBikeDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venroute_bike_detail);
-//        getSupportActionBar().hide();
         getSupportActionBar().setTitle("Detail");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().hide();
         Intent intent = getIntent();
 
         vehicleId = intent.getStringExtra("vehicleId");

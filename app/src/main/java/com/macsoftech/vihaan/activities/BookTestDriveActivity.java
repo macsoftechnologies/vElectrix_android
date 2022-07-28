@@ -7,6 +7,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.macsoftech.vihaan.R;
+import com.macsoftech.vihaan.api.RestApi;
+import com.macsoftech.vihaan.model.BrandResponse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.macsoftech.vihaan.api.RestApi.prepareBodyPart;
 
 public class BookTestDriveActivity extends BaseActivity {
 
@@ -18,6 +30,7 @@ public class BookTestDriveActivity extends BaseActivity {
         setContentView(R.layout.activity_booktestdrive);
         getSupportActionBar().setTitle("Book a Ride");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().hide();
         eName = findViewById(R.id.edit_name);
         eAdharNo = findViewById(R.id.edit_adharno);
         eContactNo = findViewById(R.id.edit_contactno);
@@ -37,6 +50,7 @@ public class BookTestDriveActivity extends BaseActivity {
     }
 
     private void onBtnClick() {
+        BrandResponse data = getIntent().getParcelableExtra("data");
         String name = eName.getText().toString();
         String adharNO = eAdharNo.getText().toString();
         String contactNo = eContactNo.getText().toString();
@@ -44,6 +58,35 @@ public class BookTestDriveActivity extends BaseActivity {
         String address2 = eAddress2.getText().toString();
         String landMark = eLandmark.getText().toString();
         String city = eCity.getText().toString();
+        //
+        Map<String, String> map = new HashMap<>();
+        map.put("name", name);
+        map.put("aadharNo", adharNO);
+        map.put("contactNo", contactNo);
+        map.put("vehicleName", data.getVehicleName());
+        map.put("model", data.getModel());
+        map.put("address", address1);
+        map.put("area", address2);
+        map.put("landmark", landMark);
+        map.put("city", city);
+
+
+        RestApi.getInstance().getService().bookRide(prepareBodyPart(map))
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
+                            showToast("Book Ride Successfully.");
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+                    }
+                });
+
         showProgress();
         new Handler().postDelayed(new Runnable() {
             @Override

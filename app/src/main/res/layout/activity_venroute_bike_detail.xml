@@ -8,6 +8,7 @@
     tools:context=".activities.SplashScreenActivity">
 
   <LinearLayout
+      android:visibility="gone"
       android:id="@+id/logo_layout"
       android:gravity="center"
       android:layout_width="match_parent"
