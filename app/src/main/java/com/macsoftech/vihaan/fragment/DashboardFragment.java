@@ -142,10 +142,20 @@ public class DashboardFragment extends Fragment {
                                     .addToBackStack(null)
                                     .commitAllowingStateLoss();
                         }
-                    },500);
+                    }, 500);
 
                 } else if (label.equalsIgnoreCase(values[1])) {
-
+                    iv_logo.setImageResource(R.drawable.pop_up_02);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.container, new VEEnergyFragment())
+                                    .addToBackStack(null)
+                                    .commitAllowingStateLoss();
+                        }
+                    }, 500);
                 }
 
             }

@@ -1,5 +1,7 @@
 plugins {
     id 'com.android.application'
+
+
 }
 apply plugin: 'kotlin-android'
 
@@ -9,7 +11,8 @@ android {
     //buildToolsVersion "32.0.0"
 
     defaultConfig {
-        applicationId "com.macsoftech.vihaan"
+//        applicationId "com.macsoftech.vihaan"
+        applicationId "com.derautobot.vihaanelectrix"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
@@ -39,6 +42,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

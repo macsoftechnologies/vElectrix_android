@@ -5,6 +5,7 @@ import butterknife.ButterKnife
 import com.macsoftech.vihaan.R
 import com.macsoftech.vihaan.fragment.DashboardFragment
 import com.macsoftech.vihaan.fragment.HomeFragment
+import com.macsoftech.vihaan.fragment.NearStoresMapFragment
 import com.macsoftech.vihaan.fragment.ProfileFragment
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
@@ -45,6 +46,7 @@ public class DashBoardActivity : BaseActivity() {
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.container, HomeFragment())
+//                .replace(R.id.container, NearStoresMapFragment())
                 .commitAllowingStateLoss()
 
         } else {
@@ -52,6 +54,7 @@ public class DashBoardActivity : BaseActivity() {
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.container, ProfileFragment())
+//                .replace(R.id.container, NearStoresMapFragment())
                 .commitAllowingStateLoss()
 
         }

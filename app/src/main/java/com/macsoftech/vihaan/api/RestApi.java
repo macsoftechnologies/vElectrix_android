@@ -12,6 +12,7 @@ import com.macsoftech.vihaan.app.BaseApp;
 import com.macsoftech.vihaan.model.BrandListResponse;
 import com.macsoftech.vihaan.model.ColorMappingVehicleSpecification;
 import com.macsoftech.vihaan.model.GetBrandVehiclesResponse;
+import com.macsoftech.vihaan.model.StoresListResponse;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -204,6 +205,9 @@ public class RestApi {
 
         @POST("color-mapping/getSpec")
         Call<ColorMappingVehicleSpecification> getBikeSpec(@Body Map<String, String> body);
+
+        @GET("stores/storeList")
+        Call<StoresListResponse> getStoreList();
 
         @Multipart
         @POST("book-ride/bookRide")

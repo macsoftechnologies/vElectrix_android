@@ -8,4 +8,7 @@
     <string name="adhar_no">ADHAR NO:</string>
     <string name="nav_title_format"><b>%s</b>%s</string>
     <string name="venture"><b>VE</b>NTURE</string>
+    <string name="map_api_key">AIzaSyAyn1EZPZnSi0uouAzrlaj_o0HRtNGUd5k</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
