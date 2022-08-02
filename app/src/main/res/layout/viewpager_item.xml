@@ -12,6 +12,7 @@
       android:id="@+id/view_pager_image"
       android:layout_width="match_parent"
       android:src="@drawable/app_icon"
+      android:adjustViewBounds="true"
       android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -12,6 +12,7 @@ import com.macsoftech.vihaan.app.BaseApp;
 import com.macsoftech.vihaan.model.BrandListResponse;
 import com.macsoftech.vihaan.model.ColorMappingVehicleSpecification;
 import com.macsoftech.vihaan.model.GetBrandVehiclesResponse;
+import com.macsoftech.vihaan.model.HomeBannerResponse;
 import com.macsoftech.vihaan.model.StoresListResponse;
 
 import java.io.File;
@@ -208,6 +209,10 @@ public class RestApi {
 
         @GET("stores/storeList")
         Call<StoresListResponse> getStoreList();
+
+
+        @GET("image/getImageList")
+        Call<HomeBannerResponse> getImageList();
 
         @Multipart
         @POST("book-ride/bookRide")

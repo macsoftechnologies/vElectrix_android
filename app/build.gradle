@@ -16,7 +16,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.2"
         archivesBaseName = "Vihaan-$versionName"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

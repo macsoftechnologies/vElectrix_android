@@ -2,11 +2,13 @@ package com.macsoftech.vihaan.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.activities.BookTestDriveActivity;
 import com.macsoftech.vihaan.api.RestApi;
@@ -46,6 +49,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
     ViewAdapter viewAdapter;
     //SpringDotsIndicator dot2;
     TextView tBookTestDrive;
+    TextView datasheet;
 
 //    private View.OnClickListener clickListener = new View.OnClickListener() {
 //        @Override
@@ -72,6 +76,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
         dots_indicator = viewItem.findViewById(R.id.dots_indicator);
         logo_model_name = viewItem.findViewById(R.id.logo_model_name);
         price = viewItem.findViewById(R.id.price);
+        datasheet = viewItem.findViewById(R.id.datasheet);
         // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
     }
@@ -85,16 +90,82 @@ public class VenrouteBikeDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        logo_model_name.setText(data.getModel());
+        logo_model_name.setText(data.getBrandName() + " - " + data.getModel());
         price.setText("Rs." + data.getAmount());
         tBookTestDrive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), BookTestDriveActivity.class);
-                intent.putExtra("data",data);
+                intent.putExtra("data", data);
                 startActivity(intent);
             }
         });
+        loadData();
+        //datasheet
+        datasheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialog();
+            }
+        });
+    }
+
+    private void showBottomSheetDialog() {
+        if (mList != null) {
+            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.bottom_sheet_specs, null);
+            LinearLayout ll_container = view.findViewById(R.id.ll_container);
+            bottomSheetDialog.setContentView(view);
+            populateBottomSheetContent(ll_container);
+            bottomSheetDialog.show();
+        }
+
+    }
+
+    void populateBottomSheetContent(LinearLayout ll_container) {
+        ColorMappingResponse data = mList.get(0);
+        Map<String, String> map = new HashMap<>();
+        map.put("Brand Name", data.getBrandName());
+        map.put("Model", data.getModel());
+        map.put("Vehicle Name", data.getVehicleName());
+        map.put("Tyre", data.getTyre());
+        map.put("Cells", data.getCells());
+        map.put("External Charging Port", data.getExternalChargingPort());
+        map.put("Brake", data.getBrake());
+        map.put("Regenerative Braking", data.getRegenerativeBraking());
+        map.put("Display", data.getDisplay());
+        map.put("MudGuards", data.getMudGuards());
+        map.put("Seat", data.getSeat());
+        map.put("Throttle", data.getThrottle());
+        map.put("Amount", data.getAmount());
+        map.put("Speed", data.getSpeed());
+        map.put("Range", data.getRange());
+        map.put("Charging Time", data.getChargingTime());
+        map.put("Load Capacity", data.getLoadCapacity());
+        map.put("Battery Type", data.getBatteryType());
+        map.put("Motor Type", data.getMotorType());
+        map.put("Battery Capacity", data.getBatteryCapacity());
+        map.put("Motor Capacity", data.getMotorCapacity());
+        int index = 0;
+        for (Map.Entry<String, String> set : map.entrySet()) {
+            View view = LayoutInflater.from(getActivity()).inflate(R.layout.row_spec, null);
+            TextView txt_key = view.findViewById(R.id.txt_key);
+            TextView txt_value = view.findViewById(R.id.txt_value);
+            txt_key.setText(set.getKey());
+            txt_value.setText(set.getValue());
+            ll_container.addView(view);
+            if (index % 2 != 0) {
+                view.setBackgroundColor(Color.parseColor("#EBFDFF"));
+            } else {
+                view.setBackgroundColor(Color.WHITE);
+            }
+            index++;
+        }
+
+    }
+
+    private void loadData() {
         Map<String, String> map = new HashMap<>();
         map.put("vehicleId", vehId);
         RestApi.getInstance().getService().getBikeSpec(map).enqueue(new Callback<ColorMappingVehicleSpecification>() {
@@ -111,11 +182,12 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
             }
         });
-
     }
 
-    private void displayBannerItems(List<ColorMappingResponse> list, Context mContext) {
+    List<ColorMappingResponse> mList;
 
+    private void displayBannerItems(List<ColorMappingResponse> list, Context mContext) {
+        mList = list;
         viewAdapter = new ViewAdapter(mContext, list);
         viewPager.setAdapter(viewAdapter);
         dots_indicator.attachTo(viewPager);

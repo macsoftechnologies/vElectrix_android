@@ -57,6 +57,14 @@ public class ColorMappingResponse
     private String brakeLights;
 
     private String amount;
+    private String speed;
+    private String range;
+    private String chargingTime;
+    private String loadCapacity;
+    private String batteryType;
+    private String motorType;
+    private String batteryCapacity;
+    private String motorCapacity;
 
     private String brandName;
 
@@ -428,5 +436,69 @@ public class ColorMappingResponse
     public String toString()
     {
         return "ClassPojo [motor = "+motor+", throttle = "+throttle+", vehicleName = "+vehicleName+", batteryCasing = "+batteryCasing+", vehicleImage = "+vehicleImage+", colorId = "+colorId+", mudGuards = "+mudGuards+", bms = "+bms+", blinkers = "+blinkers+", storage = "+storage+", battery = "+battery+", ladiesFootrest = "+ladiesFootrest+", tyre = "+tyre+", chargerOutput = "+chargerOutput+", createdAt = "+createdAt+", security = "+security+", rim = "+rim+", __v = "+__v+", externalChargingPort = "+externalChargingPort+", model = "+model+", vehicleId = "+vehicleId+", regenerativeBraking = "+regenerativeBraking+", updatedAt = "+updatedAt+", controller = "+controller+", headLamp = "+headLamp+", brakeLights = "+brakeLights+", amount = "+amount+", brandName = "+brandName+", display = "+display+", seat = "+seat+", brake = "+brake+", cells = "+cells+", reflector = "+reflector+", gradeablity = "+gradeablity+", _id = "+_id+"]";
+    }
+
+    public String getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(String speed) {
+        this.speed = speed;
+    }
+
+    public String getRange() {
+        return range;
+    }
+
+    public void setRange(String range) {
+        this.range = range;
+    }
+
+    public String getChargingTime() {
+        return chargingTime;
+    }
+
+    public void setChargingTime(String chargingTime) {
+        this.chargingTime = chargingTime;
+    }
+
+    public String getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(String loadCapacity) {
+        this.loadCapacity = loadCapacity;
+    }
+
+    public String getBatteryType() {
+        return batteryType;
+    }
+
+    public void setBatteryType(String batteryType) {
+        this.batteryType = batteryType;
+    }
+
+    public String getMotorType() {
+        return motorType;
+    }
+
+    public void setMotorType(String motorType) {
+        this.motorType = motorType;
+    }
+
+    public String getBatteryCapacity() {
+        return batteryCapacity;
+    }
+
+    public void setBatteryCapacity(String batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public String getMotorCapacity() {
+        return motorCapacity;
+    }
+
+    public void setMotorCapacity(String motorCapacity) {
+        this.motorCapacity = motorCapacity;
     }
 }

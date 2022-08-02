@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:id="@+id/ll_container"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:fontFamily="@font/lato_bold"
+            android:text="SPECIFICATIONS"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:textColor="@color/teal_700"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</ScrollView>
