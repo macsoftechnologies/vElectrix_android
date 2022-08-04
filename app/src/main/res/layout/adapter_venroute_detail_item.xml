@@ -10,7 +10,7 @@
 
   <androidx.cardview.widget.CardView
       app:cardElevation="5dp"
-      app:cardCornerRadius="8dp"
+      app:cardCornerRadius="3dp"
       android:padding="10dp"
       android:layout_margin="10dp"
       android:layout_width="match_parent"
@@ -57,9 +57,11 @@
           android:layout_width="match_parent"
           android:layout_height="1dp"
           android:background="#E3E3E3"
+          android:visibility="gone"
           />
 
     <LinearLayout
+        android:visibility="gone"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
