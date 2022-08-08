@@ -50,6 +50,7 @@ public class VenrouteBannerDetailFragment extends Fragment {
             Intent intent = new Intent(getActivity(), VenRouteBikeDetailActivity.class);
             intent.putExtra("vehicleId", item.getVehicleId());
             intent.putExtra("data", item);
+            intent.putExtra("brandLogo", getArguments().getString("brandLogo"));
             startActivity(intent);
 
         }

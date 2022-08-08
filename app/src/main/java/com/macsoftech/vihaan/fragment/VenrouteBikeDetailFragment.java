@@ -19,7 +19,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.macsoftech.vihaan.R;
 import com.macsoftech.vihaan.activities.BookTestDriveActivity;
 import com.macsoftech.vihaan.api.RestApi;
@@ -28,6 +27,7 @@ import com.macsoftech.vihaan.model.ColorMappingResponse;
 import com.macsoftech.vihaan.model.ColorMappingVehicleSpecification;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +43,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
     private BrandResponse data;
     private List<BrandResponse> list;
     TextView price;
+    TextView logo_brand_name;
     TextView logo_model_name;
     ViewPager viewPager;
     DotsIndicator dots_indicator;
@@ -50,6 +51,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
     //SpringDotsIndicator dot2;
     TextView tBookTestDrive;
     TextView datasheet;
+    LinearLayout ll_data;
 
 //    private View.OnClickListener clickListener = new View.OnClickListener() {
 //        @Override
@@ -74,9 +76,11 @@ public class VenrouteBikeDetailFragment extends Fragment {
         viewPager = viewItem.findViewById(R.id.view_pager);
         tBookTestDrive = viewItem.findViewById(R.id.book_test_drive);
         dots_indicator = viewItem.findViewById(R.id.dots_indicator);
+        logo_brand_name = viewItem.findViewById(R.id.logo_brand_name);
         logo_model_name = viewItem.findViewById(R.id.logo_model_name);
         price = viewItem.findViewById(R.id.price);
         datasheet = viewItem.findViewById(R.id.datasheet);
+        ll_data = viewItem.findViewById(R.id.ll_data);
         // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
     }
@@ -90,7 +94,8 @@ public class VenrouteBikeDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        logo_model_name.setText(data.getBrandName() + " - " + data.getModel());
+        logo_brand_name.setText(data.getBrandName());
+        logo_model_name.setText(data.getModel());
         price.setText("Rs." + data.getAmount());
         tBookTestDrive.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,30 +106,32 @@ public class VenrouteBikeDetailFragment extends Fragment {
             }
         });
         loadData();
+
         //datasheet
         datasheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showBottomSheetDialog();
+//                showBottomSheetDialog();
             }
         });
-    }
-
-    private void showBottomSheetDialog() {
-        if (mList != null) {
-            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
-
-            View view = LayoutInflater.from(getActivity()).inflate(R.layout.bottom_sheet_specs, null);
-            LinearLayout ll_container = view.findViewById(R.id.ll_container);
-            bottomSheetDialog.setContentView(view);
-            populateBottomSheetContent(ll_container);
-            bottomSheetDialog.show();
-        }
 
     }
+    //
+//    private void showBottomSheetDialog() {
+//        if (mList != null) {
+//            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+//
+//            View view = LayoutInflater.from(getActivity()).inflate(R.layout.bottom_sheet_specs, null);
+//            LinearLayout ll_container = view.findViewById(R.id.ll_container);
+//            bottomSheetDialog.setContentView(view);
+//            populateBottomSheetContent(ll_container);
+//            bottomSheetDialog.show();
+//        }
+//
+//    }
 
-    void populateBottomSheetContent(LinearLayout ll_container) {
-        ColorMappingResponse data = mList.get(0);
+    void populateBottomSheetContent(List<ColorMappingResponse> list, LinearLayout ll_container) {
+        ColorMappingResponse data = list.get(0);
         Map<String, String> map = new HashMap<>();
         map.put("Brand Name", data.getBrandName());
         map.put("Model", data.getModel());
@@ -152,16 +159,17 @@ public class VenrouteBikeDetailFragment extends Fragment {
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.row_spec, null);
             TextView txt_key = view.findViewById(R.id.txt_key);
             TextView txt_value = view.findViewById(R.id.txt_value);
-            txt_key.setText(set.getKey());
+            txt_key.setText(set.getKey().toUpperCase());
             txt_value.setText(set.getValue());
             ll_container.addView(view);
-            if (index % 2 != 0) {
-                view.setBackgroundColor(Color.parseColor("#EBFDFF"));
-            } else {
-                view.setBackgroundColor(Color.WHITE);
-            }
+//            if (index % 2 != 0) {
+//                view.setBackgroundColor(Color.parseColor("#EBFDFF"));
+//            } else {
+//            }
+            view.setBackgroundColor(Color.WHITE);
             index++;
         }
+
 
     }
 
@@ -172,8 +180,35 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
             @Override
             public void onResponse(Call<ColorMappingVehicleSpecification> call, Response<ColorMappingVehicleSpecification> response) {
-                List<ColorMappingResponse> list = response.body().getColorMappingResponse();
-                displayBannerItems(list, getActivity());
+                if (response.isSuccessful()) {
+                    List<ColorMappingResponse> list = response.body().getColorMappingResponse();
+//                    displayBannerItems(list, getActivity());
+                    populateBottomSheetContent(list, ll_data);
+                    loadColorsData();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ColorMappingVehicleSpecification> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    private void loadColorsData() {
+        Map<String, String> map = new HashMap<>();
+        map.put("vehicleId", vehId);
+        RestApi.getInstance().getService().getVehicleColor(map).enqueue(new Callback<ColorMappingVehicleSpecification>() {
+
+            @Override
+            public void onResponse(Call<ColorMappingVehicleSpecification> call, Response<ColorMappingVehicleSpecification> response) {
+                if (response.isSuccessful()) {
+                    List<ColorMappingResponse> list = response.body().getColorMappingResponse();
+                    displayBannerItems(list, getActivity());
+                }
 
             }
 
@@ -191,14 +226,6 @@ public class VenrouteBikeDetailFragment extends Fragment {
         viewAdapter = new ViewAdapter(mContext, list);
         viewPager.setAdapter(viewAdapter);
         dots_indicator.attachTo(viewPager);
-        // dot2.setViewPager(viewPager);
-
-//        VenrouteDetailListAdapter listAdapter = new VenrouteDetailListAdapter(list, mContext);
-//        RecyclerView.LayoutManager linearLayout = new LinearLayoutManager(mContext);
-//        recyclerView.setLayoutManager(linearLayout);
-//        recyclerView.setAdapter(listAdapter);
-//        listAdapter.onItemClickListener(clickListener);
-
     }
 
 
@@ -207,12 +234,19 @@ public class VenrouteBikeDetailFragment extends Fragment {
         private Context context;
         private LayoutInflater layoutInflater;
         //private Integer[] images={R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
-        List<String> imageList;
+        List<String> imageList = new ArrayList<>();
 
         public ViewAdapter(Context mContext, List<ColorMappingResponse> list) {
             this.context = mContext;
             if (list != null) {
-                imageList = list.get(0).getVehicleImage();
+                for (ColorMappingResponse colorMappingResponse : list) {
+                    try {
+                        imageList.add(colorMappingResponse.getVehicleImage().get(0));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+//                imageList = list.get(0).getVehicleImage();
             }
         }
 
@@ -239,7 +273,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
                     .load(RestApi.BASE_URL + imageList.get(position))
                     .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                     .fitCenter()
-                    .placeholder(R.drawable.nav_profile)
+//                    .placeholder(R.drawable.nav_profile)
                     .error(R.drawable.nav_profile)
                     .into((imageView));
 

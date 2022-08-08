@@ -88,7 +88,8 @@ public class VEEnergyFragment extends Fragment {
         txt_title.setText(wordtoSpan);
 
         Glide.with(getActivity())
-                .load(R.drawable.chargin_station)
+//                .load(R.drawable.chargin_station)
+                .load(R.drawable.ve_energy)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
                 .into(iv_logo);

@@ -2,8 +2,7 @@ package com.macsoftech.vihaan.model;
 
 import java.util.List;
 
-public class ColorMappingResponse
-{
+public class ColorMappingResponse {
     private String motor;
 
     private String throttle;
@@ -13,7 +12,10 @@ public class ColorMappingResponse
     private String batteryCasing;
 
     private List<String> vehicleImage;
+//    private List<String> colorImage;
+    private Object colorImage;
 
+    private String color;
     private String colorId;
 
     private String mudGuards;
@@ -82,360 +84,289 @@ public class ColorMappingResponse
 
     private String _id;
 
-    public String getMotor ()
-    {
+    public String getMotor() {
         return motor;
     }
 
-    public void setMotor (String motor)
-    {
+    public void setMotor(String motor) {
         this.motor = motor;
     }
 
-    public String getThrottle ()
-    {
+    public String getThrottle() {
         return throttle;
     }
 
-    public void setThrottle (String throttle)
-    {
+    public void setThrottle(String throttle) {
         this.throttle = throttle;
     }
 
-    public String getVehicleName ()
-    {
+    public String getVehicleName() {
         return vehicleName;
     }
 
-    public void setVehicleName (String vehicleName)
-    {
+    public void setVehicleName(String vehicleName) {
         this.vehicleName = vehicleName;
     }
 
-    public String getBatteryCasing ()
-    {
+    public String getBatteryCasing() {
         return batteryCasing;
     }
 
-    public void setBatteryCasing (String batteryCasing)
-    {
+    public void setBatteryCasing(String batteryCasing) {
         this.batteryCasing = batteryCasing;
     }
 
-    public List<String> getVehicleImage ()
-    {
+    public List<String> getVehicleImage() {
         return vehicleImage;
     }
 
-    public void setVehicleImage (List<String> vehicleImage)
-    {
+    public void setVehicleImage(List<String> vehicleImage) {
         this.vehicleImage = vehicleImage;
     }
 
-    public String getColorId ()
-    {
+    public String getColorId() {
         return colorId;
     }
 
-    public void setColorId (String colorId)
-    {
+    public void setColorId(String colorId) {
         this.colorId = colorId;
     }
 
-    public String getMudGuards ()
-    {
+    public String getMudGuards() {
         return mudGuards;
     }
 
-    public void setMudGuards (String mudGuards)
-    {
+    public void setMudGuards(String mudGuards) {
         this.mudGuards = mudGuards;
     }
 
-    public String getBms ()
-    {
+    public String getBms() {
         return bms;
     }
 
-    public void setBms (String bms)
-    {
+    public void setBms(String bms) {
         this.bms = bms;
     }
 
-    public String getBlinkers ()
-    {
+    public String getBlinkers() {
         return blinkers;
     }
 
-    public void setBlinkers (String blinkers)
-    {
+    public void setBlinkers(String blinkers) {
         this.blinkers = blinkers;
     }
 
-    public String getStorage ()
-    {
+    public String getStorage() {
         return storage;
     }
 
-    public void setStorage (String storage)
-    {
+    public void setStorage(String storage) {
         this.storage = storage;
     }
 
-    public String getBattery ()
-    {
+    public String getBattery() {
         return battery;
     }
 
-    public void setBattery (String battery)
-    {
+    public void setBattery(String battery) {
         this.battery = battery;
     }
 
-    public String getLadiesFootrest ()
-    {
+    public String getLadiesFootrest() {
         return ladiesFootrest;
     }
 
-    public void setLadiesFootrest (String ladiesFootrest)
-    {
+    public void setLadiesFootrest(String ladiesFootrest) {
         this.ladiesFootrest = ladiesFootrest;
     }
 
-    public String getTyre ()
-    {
+    public String getTyre() {
         return tyre;
     }
 
-    public void setTyre (String tyre)
-    {
+    public void setTyre(String tyre) {
         this.tyre = tyre;
     }
 
-    public String getChargerOutput ()
-    {
+    public String getChargerOutput() {
         return chargerOutput;
     }
 
-    public void setChargerOutput (String chargerOutput)
-    {
+    public void setChargerOutput(String chargerOutput) {
         this.chargerOutput = chargerOutput;
     }
 
-    public String getCreatedAt ()
-    {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt (String createdAt)
-    {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getSecurity ()
-    {
+    public String getSecurity() {
         return security;
     }
 
-    public void setSecurity (String security)
-    {
+    public void setSecurity(String security) {
         this.security = security;
     }
 
-    public String getRim ()
-    {
+    public String getRim() {
         return rim;
     }
 
-    public void setRim (String rim)
-    {
+    public void setRim(String rim) {
         this.rim = rim;
     }
 
-    public String get__v ()
-    {
+    public String get__v() {
         return __v;
     }
 
-    public void set__v (String __v)
-    {
+    public void set__v(String __v) {
         this.__v = __v;
     }
 
-    public String getExternalChargingPort ()
-    {
+    public String getExternalChargingPort() {
         return externalChargingPort;
     }
 
-    public void setExternalChargingPort (String externalChargingPort)
-    {
+    public void setExternalChargingPort(String externalChargingPort) {
         this.externalChargingPort = externalChargingPort;
     }
 
-    public String getModel ()
-    {
+    public String getModel() {
         return model;
     }
 
-    public void setModel (String model)
-    {
+    public void setModel(String model) {
         this.model = model;
     }
 
-    public String getVehicleId ()
-    {
+    public String getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId (String vehicleId)
-    {
+    public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
     }
 
-    public String getRegenerativeBraking ()
-    {
+    public String getRegenerativeBraking() {
         return regenerativeBraking;
     }
 
-    public void setRegenerativeBraking (String regenerativeBraking)
-    {
+    public void setRegenerativeBraking(String regenerativeBraking) {
         this.regenerativeBraking = regenerativeBraking;
     }
 
-    public String getUpdatedAt ()
-    {
+    public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt (String updatedAt)
-    {
+    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public String getController ()
-    {
+    public String getController() {
         return controller;
     }
 
-    public void setController (String controller)
-    {
+    public void setController(String controller) {
         this.controller = controller;
     }
 
-    public String getHeadLamp ()
-    {
+    public String getHeadLamp() {
         return headLamp;
     }
 
-    public void setHeadLamp (String headLamp)
-    {
+    public void setHeadLamp(String headLamp) {
         this.headLamp = headLamp;
     }
 
-    public String getBrakeLights ()
-    {
+    public String getBrakeLights() {
         return brakeLights;
     }
 
-    public void setBrakeLights (String brakeLights)
-    {
+    public void setBrakeLights(String brakeLights) {
         this.brakeLights = brakeLights;
     }
 
-    public String getAmount ()
-    {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount (String amount)
-    {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public String getBrandName ()
-    {
+    public String getBrandName() {
         return brandName;
     }
 
-    public void setBrandName (String brandName)
-    {
+    public void setBrandName(String brandName) {
         this.brandName = brandName;
     }
 
-    public String getDisplay ()
-    {
+    public String getDisplay() {
         return display;
     }
 
-    public void setDisplay (String display)
-    {
+    public void setDisplay(String display) {
         this.display = display;
     }
 
-    public String getSeat ()
-    {
+    public String getSeat() {
         return seat;
     }
 
-    public void setSeat (String seat)
-    {
+    public void setSeat(String seat) {
         this.seat = seat;
     }
 
-    public String getBrake ()
-    {
+    public String getBrake() {
         return brake;
     }
 
-    public void setBrake (String brake)
-    {
+    public void setBrake(String brake) {
         this.brake = brake;
     }
 
-    public String getCells ()
-    {
+    public String getCells() {
         return cells;
     }
 
-    public void setCells (String cells)
-    {
+    public void setCells(String cells) {
         this.cells = cells;
     }
 
-    public String getReflector ()
-    {
+    public String getReflector() {
         return reflector;
     }
 
-    public void setReflector (String reflector)
-    {
+    public void setReflector(String reflector) {
         this.reflector = reflector;
     }
 
-    public String getGradeablity ()
-    {
+    public String getGradeablity() {
         return gradeablity;
     }
 
-    public void setGradeablity (String gradeablity)
-    {
+    public void setGradeablity(String gradeablity) {
         this.gradeablity = gradeablity;
     }
 
-    public String get_id ()
-    {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id (String _id)
-    {
+    public void set_id(String _id) {
         this._id = _id;
     }
 
     @Override
-    public String toString()
-    {
-        return "ClassPojo [motor = "+motor+", throttle = "+throttle+", vehicleName = "+vehicleName+", batteryCasing = "+batteryCasing+", vehicleImage = "+vehicleImage+", colorId = "+colorId+", mudGuards = "+mudGuards+", bms = "+bms+", blinkers = "+blinkers+", storage = "+storage+", battery = "+battery+", ladiesFootrest = "+ladiesFootrest+", tyre = "+tyre+", chargerOutput = "+chargerOutput+", createdAt = "+createdAt+", security = "+security+", rim = "+rim+", __v = "+__v+", externalChargingPort = "+externalChargingPort+", model = "+model+", vehicleId = "+vehicleId+", regenerativeBraking = "+regenerativeBraking+", updatedAt = "+updatedAt+", controller = "+controller+", headLamp = "+headLamp+", brakeLights = "+brakeLights+", amount = "+amount+", brandName = "+brandName+", display = "+display+", seat = "+seat+", brake = "+brake+", cells = "+cells+", reflector = "+reflector+", gradeablity = "+gradeablity+", _id = "+_id+"]";
+    public String toString() {
+        return "ClassPojo [motor = " + motor + ", throttle = " + throttle + ", vehicleName = " + vehicleName + ", batteryCasing = " + batteryCasing + ", vehicleImage = " + vehicleImage + ", colorId = " + colorId + ", mudGuards = " + mudGuards + ", bms = " + bms + ", blinkers = " + blinkers + ", storage = " + storage + ", battery = " + battery + ", ladiesFootrest = " + ladiesFootrest + ", tyre = " + tyre + ", chargerOutput = " + chargerOutput + ", createdAt = " + createdAt + ", security = " + security + ", rim = " + rim + ", __v = " + __v + ", externalChargingPort = " + externalChargingPort + ", model = " + model + ", vehicleId = " + vehicleId + ", regenerativeBraking = " + regenerativeBraking + ", updatedAt = " + updatedAt + ", controller = " + controller + ", headLamp = " + headLamp + ", brakeLights = " + brakeLights + ", amount = " + amount + ", brandName = " + brandName + ", display = " + display + ", seat = " + seat + ", brake = " + brake + ", cells = " + cells + ", reflector = " + reflector + ", gradeablity = " + gradeablity + ", _id = " + _id + "]";
     }
 
     public String getSpeed() {
@@ -500,5 +431,21 @@ public class ColorMappingResponse
 
     public void setMotorCapacity(String motorCapacity) {
         this.motorCapacity = motorCapacity;
+    }
+
+    public Object getColorImage() {
+        return colorImage;
+    }
+
+    public void setColorImage(Object colorImage) {
+        this.colorImage = colorImage;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

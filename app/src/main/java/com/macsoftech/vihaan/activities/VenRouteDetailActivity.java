@@ -36,7 +36,7 @@ public class VenRouteDetailActivity extends BaseActivity {
                 .load(RestApi.BASE_URL + brandLogo)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .fitCenter()
-                .placeholder(R.drawable.nav_profile)
+//                .placeholder(R.drawable.nav_profile)
                 .error(R.drawable.nav_profile)
                 .into(imgBrandLogo);
 

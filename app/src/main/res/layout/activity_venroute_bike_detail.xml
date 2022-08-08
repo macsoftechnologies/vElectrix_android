@@ -8,7 +8,7 @@
     tools:context=".activities.SplashScreenActivity">
 
   <LinearLayout
-      android:visibility="gone"
+      android:visibility="visible"
       android:id="@+id/logo_layout"
       android:gravity="center"
       android:layout_width="match_parent"
@@ -17,9 +17,8 @@
     <ImageView
         android:id="@+id/bannerLogo"
         android:layout_width="match_parent"
-        android:layout_marginTop="20sp"
         android:src="@drawable/ve_logo_h"
-        android:layout_height="100dp"/>
+        android:layout_height="80dp"/>
   </LinearLayout>
 
   <FrameLayout
