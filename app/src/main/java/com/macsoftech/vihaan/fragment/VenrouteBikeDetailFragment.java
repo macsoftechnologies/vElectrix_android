@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -51,7 +52,9 @@ public class VenrouteBikeDetailFragment extends Fragment {
     //SpringDotsIndicator dot2;
     TextView tBookTestDrive;
     TextView datasheet;
+    TextView txt_more;
     LinearLayout ll_data;
+    LinearLayout ll_color;
 
 //    private View.OnClickListener clickListener = new View.OnClickListener() {
 //        @Override
@@ -81,6 +84,8 @@ public class VenrouteBikeDetailFragment extends Fragment {
         price = viewItem.findViewById(R.id.price);
         datasheet = viewItem.findViewById(R.id.datasheet);
         ll_data = viewItem.findViewById(R.id.ll_data);
+        ll_color = viewItem.findViewById(R.id.ll_color);
+        txt_more = viewItem.findViewById(R.id.txt_more);
         // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
     }
@@ -133,20 +138,8 @@ public class VenrouteBikeDetailFragment extends Fragment {
     void populateBottomSheetContent(List<ColorMappingResponse> list, LinearLayout ll_container) {
         ColorMappingResponse data = list.get(0);
         Map<String, String> map = new HashMap<>();
-        map.put("Brand Name", data.getBrandName());
-        map.put("Model", data.getModel());
-        map.put("Vehicle Name", data.getVehicleName());
-        map.put("Tyre", data.getTyre());
-        map.put("Cells", data.getCells());
-        map.put("External Charging Port", data.getExternalChargingPort());
-        map.put("Brake", data.getBrake());
-        map.put("Regenerative Braking", data.getRegenerativeBraking());
-        map.put("Display", data.getDisplay());
-        map.put("MudGuards", data.getMudGuards());
-        map.put("Seat", data.getSeat());
-        map.put("Throttle", data.getThrottle());
-        map.put("Amount", data.getAmount());
-        map.put("Speed", data.getSpeed());
+        //
+        map.put("Top Speed", data.getTopSpeed());
         map.put("Range", data.getRange());
         map.put("Charging Time", data.getChargingTime());
         map.put("Load Capacity", data.getLoadCapacity());
@@ -154,6 +147,32 @@ public class VenrouteBikeDetailFragment extends Fragment {
         map.put("Motor Type", data.getMotorType());
         map.put("Battery Capacity", data.getBatteryCapacity());
         map.put("Motor Capacity", data.getMotorCapacity());
+        //
+        map.put("Tyre", data.getTyre());
+        map.put("Controller", data.getController());
+        map.put("Battery Casing", data.getBatteryCasing());
+        map.put("Charger Output", data.getChargerOutput());
+        map.put("External Charging Port", data.getExternalChargingPort());
+        map.put("Brake", data.getBrake());
+        map.put("Regenerative Braking", data.getRegenerativeBraking());
+        map.put("Display", data.getDisplay());
+        map.put("Gradeablity", data.getGradeablity());
+        map.put("Storage", data.getStorage());
+        map.put("Security", data.getSecurity());
+        map.put("BMS", data.getBms());
+        map.put("Head Lamp", data.getHeadLamp());
+        map.put("Blinker", data.getBlinkers());
+        map.put("MudGuards", data.getMudGuards());
+        map.put("Seat", data.getSeat());
+        map.put("Throttle", data.getThrottle());
+        map.put("Foot Rest", data.getLadiesFootrest());
+        map.put("Brand Name", data.getBrandName());
+        map.put("Model", data.getModel());
+        map.put("Vehicle Name", data.getVehicleName());
+        map.put("Cells", data.getCells());
+        map.put("Amount", data.getAmount());
+        map.put("Speed", data.getSpeed());
+
         int index = 0;
         for (Map.Entry<String, String> set : map.entrySet()) {
             View view = LayoutInflater.from(getActivity()).inflate(R.layout.row_spec, null);
@@ -162,15 +181,25 @@ public class VenrouteBikeDetailFragment extends Fragment {
             txt_key.setText(set.getKey().toUpperCase());
             txt_value.setText(set.getValue());
             ll_container.addView(view);
-//            if (index % 2 != 0) {
-//                view.setBackgroundColor(Color.parseColor("#EBFDFF"));
-//            } else {
-//            }
             view.setBackgroundColor(Color.WHITE);
+            view.setVisibility(View.GONE);
             index++;
         }
 
+        for (int i = 0; i < 7; i++) {
+            ll_container.getChildAt(i).setVisibility(View.VISIBLE);
+        }
 
+//        for (int i = 7; i < ll_container.getChildCount(); i++) {
+//            ll_container.getChildAt(i).setVisibility(View.VISIBLE);
+//        }
+
+        txt_more.setOnClickListener(view -> {
+            for (int i = 0; i < ll_container.getChildCount(); i++) {
+                ll_container.getChildAt(i).setVisibility(View.VISIBLE);
+            }
+            view.setVisibility(View.GONE);
+        });
     }
 
     private void loadData() {
@@ -226,6 +255,22 @@ public class VenrouteBikeDetailFragment extends Fragment {
         viewAdapter = new ViewAdapter(mContext, list);
         viewPager.setAdapter(viewAdapter);
         dots_indicator.attachTo(viewPager);
+
+        for (int i = 0; i < list.size() && i < 4; i++) {
+            AppCompatImageView img = new AppCompatImageView(getActivity());
+            img.setImageResource(R.drawable.ic_baseline_circle_24);
+            img.setColorFilter(Color.parseColor(list.get(i).getColor()),
+                    android.graphics.PorterDuff.Mode.SRC_IN);
+            int finalI = i;
+            img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    viewPager.setCurrentItem(finalI);
+                }
+            });
+            ll_color.addView(img);
+        }
+
     }
 
 

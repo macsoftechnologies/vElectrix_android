@@ -61,6 +61,7 @@ public class ColorMappingResponse {
     private String amount;
     private String speed;
     private String range;
+    private String topSpeed;
     private String chargingTime;
     private String loadCapacity;
     private String batteryType;
@@ -447,5 +448,13 @@ public class ColorMappingResponse {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getTopSpeed() {
+        return topSpeed;
+    }
+
+    public void setTopSpeed(String topSpeed) {
+        this.topSpeed = topSpeed;
     }
 }
