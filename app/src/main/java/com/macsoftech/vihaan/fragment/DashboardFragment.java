@@ -156,6 +156,18 @@ public class DashboardFragment extends Fragment {
                                     .commitAllowingStateLoss();
                         }
                     }, 500);
+                }else if (label.equalsIgnoreCase(values[2])) {
+                    iv_logo.setImageResource(R.drawable.pop_up_03);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.container, new VEaseFragment())
+                                    .addToBackStack(null)
+                                    .commitAllowingStateLoss();
+                        }
+                    }, 500);
                 }
 
             }
