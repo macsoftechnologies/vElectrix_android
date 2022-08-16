@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeDetailFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:id="@+id/txt_title"
+        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:text="VENROUTE" />
+
+    <ScrollView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:lineSpacingMultiplier="1.5"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            tools:text="VEnroute ensures to sell the top-of-the-line electric vehicles to our customers as we invest in improving every aspect of the electric vehicle experience i.e., from technology to design to provide the best products to our customers, we strive for a sense of purpose towards innovation. We at VE believe that innovation is the key to growth and success, which is why no word encompasses what we stand for - The Vigorous Effort we put into providing the best possible service to our customers." />
+    </ScrollView>
+    
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_gravity="right"
+        android:layout_margin="20sp"
+        android:layout_width="50dp"
+        android:src="@drawable/ic_baseline_navigate_next_24"
+        android:layout_height="50dp"/>
+   
+
+</LinearLayout>

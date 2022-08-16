@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".fragment.VEaseFragment">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:lineSpacingMultiplier="1.2"
+        android:padding="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="For EV Service\n we are available at:"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:drawablePadding="16dp"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:text="MADDILA PALEM"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:textColor="#2857AC"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:padding="10dp"
+            android:drawablePadding="16dp"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:text="MADHURAWADA"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:textColor="#2857AC"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:padding="10dp"
+            android:drawablePadding="16dp"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:text="PENDURTHI"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:textColor="#2857AC"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:padding="10dp"
+            android:drawablePadding="16dp"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:text="GAJUWAKA"
+            android:drawableLeft="@drawable/ic_baseline_location_on_24"
+            android:textColor="#2857AC"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:lineSpacingMultiplier="1.5"
+        android:padding="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Click on the\ntoll-free number\nfor service enquiry"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/call"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:text="+91 9000 555 855"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"/>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -24,14 +24,14 @@ public class DashBoardActivity : BaseActivity() {
                 CbnMenuItem(R.drawable.animated_dashboard, R.drawable.animated_dashboard, 0),
                 CbnMenuItem(R.drawable.animated_home, R.drawable.animated_home, 0),
                 CbnMenuItem(R.drawable.animated_profile, R.drawable.animated_profile, 0)
-            ), 0
+            ), 1
         )
         bottomNavigationView?.setOnMenuItemClickListener { cbnMenuItem, i ->
             run {
                 addReplaceFragment(i);
             }
         }
-        addReplaceFragment(0);
+        addReplaceFragment(1);
     }
 
     fun addReplaceFragment(index: Int) {
@@ -39,13 +39,13 @@ public class DashBoardActivity : BaseActivity() {
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                .replace(R.id.container, DashboardFragment())
+                .replace(R.id.container, HomeFragment())
                 .commitAllowingStateLoss()
         } else if (index == 1) {
             supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                .replace(R.id.container, HomeFragment())
+                .replace(R.id.container, DashboardFragment())
 //                .replace(R.id.container, NearStoresMapFragment())
                 .commitAllowingStateLoss()
 

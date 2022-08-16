@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vihaan</string>
+    <string name="app_name">VE-EV</string>
     <string name="view_less">View Less</string>
     <string name="view_more">View More</string>
     <string name="venroute">VENROUTE</string>
@@ -11,4 +11,10 @@
     <string name="map_api_key">AIzaSyAyn1EZPZnSi0uouAzrlaj_o0HRtNGUd5k</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="venergy"><b>VE</b>nergy</string>
+    <string name="venroute_b"><b>VE</b>nroute</string>
+    <string name="venergy_b"><b>VE</b>nergy</string>
+    <string name="vease_b"><b>VE</b>ase</string>
+    <string name="vequipment_b"><b>VE</b>quipment</string>
+    <string name="vessential_b"><b>VE</b>ssential</string>
 </resources>
