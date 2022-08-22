@@ -1,13 +1,13 @@
 package com.macsoftech.vihaan.model;
 
-import java.util.List;
-
 public class StoresList {
     private String _id;
-    private String storeId;
-    private String storeName;
+    private String chargerId;
     private String longitude;
     private String latitude;
+    private String venergyOpen;
+    private String venergyClose;
+    private String chargerImage;
 
     public String get_id() {
         return _id;
@@ -17,21 +17,14 @@ public class StoresList {
         this._id = _id;
     }
 
-    public String getStoreId() {
-        return storeId;
+    public String getChargerId() {
+        return chargerId;
     }
 
-    public void setStoreId(String storeId) {
-        this.storeId = storeId;
+    public void setChargerId(String chargerId) {
+        this.chargerId = chargerId;
     }
 
-    public String getStoreName() {
-        return storeName;
-    }
-
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
 
     public String getLongitude() {
         return longitude;
@@ -50,39 +43,27 @@ public class StoresList {
     }
 
     public String getStoreOpen() {
-        return storeOpen;
+        return venergyOpen;
     }
 
-    public void setStoreOpen(String storeOpen) {
-        this.storeOpen = storeOpen;
+    public void setStoreOpen(String venergyOpen) {
+        this.venergyOpen = venergyOpen;
     }
 
     public String getStoreClose() {
-        return storeClose;
+        return venergyClose;
     }
 
-    public void setStoreClose(String storeClose) {
-        this.storeClose = storeClose;
+    public void setStoreClose(String venergyClose) {
+        this.venergyClose = venergyClose;
     }
 
-    public List<String> getStoreImage() {
-        return storeImage;
+
+    public String getChargerImage() {
+        return chargerImage;
     }
 
-    public void setStoreImage(List<String> storeImage) {
-        this.storeImage = storeImage;
+    public void setChargerImage(String chargerImage) {
+        this.chargerImage = chargerImage;
     }
-
-    public List<String> getStoreIcon() {
-        return storeIcon;
-    }
-
-    public void setStoreIcon(List<String> storeIcon) {
-        this.storeIcon = storeIcon;
-    }
-
-    private String storeOpen;
-    private String storeClose;
-    private List<String> storeImage;
-    private List<String> storeIcon;
 }

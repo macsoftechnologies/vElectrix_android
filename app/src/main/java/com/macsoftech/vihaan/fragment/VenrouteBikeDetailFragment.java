@@ -260,16 +260,21 @@ public class VenrouteBikeDetailFragment extends Fragment {
         for (int i = 0; i < list.size() && i < 4; i++) {
             AppCompatImageView img = new AppCompatImageView(getActivity());
             img.setImageResource(R.drawable.ic_baseline_circle_24);
-            img.setColorFilter(Color.parseColor(list.get(i).getColor()),
-                    android.graphics.PorterDuff.Mode.SRC_IN);
-            int finalI = i;
-            img.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    viewPager.setCurrentItem(finalI);
-                }
-            });
-            ll_color.addView(img);
+            try {
+                img.setColorFilter(Color.parseColor(list.get(i).getColor()),
+                        android.graphics.PorterDuff.Mode.SRC_IN);
+                int finalI = i;
+                img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        viewPager.setCurrentItem(finalI);
+                    }
+                });
+                ll_color.addView(img);
+            } catch (Exception e) {
+
+            }
+
         }
 
     }

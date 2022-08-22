@@ -3,13 +3,15 @@ package com.macsoftech.vihaan.model;
 import java.util.List;
 
 public class StoresListData {
-    private List<StoresList> storesList;
+    private List<StoresList> UserDetails;
 
     public List<StoresList> getStoresList() {
-        return storesList;
+        return UserDetails;
     }
 
-    public void setStoresList(List<StoresList> storesList) {
-        this.storesList = storesList;
+    public void setStoresList(List<StoresList> UserDetails) {
+        this.UserDetails = UserDetails;
     }
+
+
 }

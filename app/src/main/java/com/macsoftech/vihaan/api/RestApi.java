@@ -210,8 +210,11 @@ public class RestApi {
         @POST("color-mapping/getVehicleColor")
         Call<ColorMappingVehicleSpecification> getVehicleColor(@Body Map<String, String> body);
 
-        @GET("stores/storeList")
-        Call<StoresListResponse> getStoreList();
+//        @GET("stores/storeList")
+//        Call<StoresListResponse> getStoreList();
+
+        @GET("v-energy/listOfChargerss")
+        Call<StoresListResponse> getListOfChargers();
 
 
         @GET("image/getImageList")

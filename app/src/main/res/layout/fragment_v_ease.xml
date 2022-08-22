@@ -87,7 +87,7 @@
         <TextView
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
-            android:text="90005 55855"
+            android:text="90005 55885"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:padding="5dp"

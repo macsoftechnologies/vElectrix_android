@@ -97,7 +97,7 @@ public class NearStoresMapFragment extends Fragment implements OnMapReadyCallbac
     public void loadData() {
         //
         RestApi.getInstance().getService()
-                .getStoreList()
+                .getListOfChargers()
                 .enqueue(new Callback<StoresListResponse>() {
                     @Override
                     public void onResponse(Call<StoresListResponse> call, Response<StoresListResponse> response) {
@@ -124,7 +124,7 @@ public class NearStoresMapFragment extends Fragment implements OnMapReadyCallbac
                     Double.parseDouble(store.getLongitude()));
             Marker marker = googleMap.addMarker(new MarkerOptions()
                     .position(latLng)
-                    .title(store.getStoreName()));
+                    .title("Open: " + store.getStoreOpen() + "-" + store.getStoreClose()));
             marker.setTag(store);
             builder.include(latLng);
 
@@ -147,14 +147,15 @@ public class NearStoresMapFragment extends Fragment implements OnMapReadyCallbac
 //                            " has been clicked ",
 //                    Toast.LENGTH_SHORT).show();
 //        }
-        txt_title.setText(store.getStoreName());
+//        txt_title.setText(store.getChargerImage());
+        txt_title.setVisibility(View.GONE);
         txt_timings.setText("Open: " + store.getStoreOpen() + "-" + store.getStoreClose());
         txt_directions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
                     Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                            Uri.parse("geo:0,0?q=" + store.getLatitude() + "," + store.getLongitude() + " (" + store.getStoreName() + ")"));
+                            Uri.parse("geo:0,0?q=" + store.getLatitude() + "," + store.getLongitude() + " (" + "Charging Station" + ")"));
                     startActivity(intent);
                 } catch (Exception e) {
                     e.printStackTrace();
