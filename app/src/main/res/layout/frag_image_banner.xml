@@ -14,6 +14,7 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/iv_banner"
+            android:scaleType="fitXY"
             android:layout_width="match_parent"
             tools:src="@drawable/app_icon"
             android:layout_gravity="center"

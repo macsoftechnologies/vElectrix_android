@@ -64,7 +64,9 @@ public class HomeFragment extends BaseFragment {
                 .placeholder(R.drawable.nav_profile)
                 .error(R.drawable.nav_profile)
                 .into(iv_banner);
-
+        if (imageRes != null) {
+            setAdapter(imageRes);
+        }
         loadBanners();
     }
 
@@ -86,28 +88,32 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.ll_1)
     public void onLogoSelected1() {
-        redirectToDetail(1, "VENROUTE", "VEnroute ensures to sell the top-of-the-line electric vehicles to our customers as we invest in improving every aspect of the electric vehicle experience i.e., from technology to design to provide the best products to our customers, we strive for a sense of purpose towards innovation. We at VE believe that innovation is the key to growth and success, which is why no word encompasses what we stand for - The Vigorous Effort we put into providing the best possible service to our customers.");
+        redirectToDetail(1, "VENROUTE", "VEnroute ensures to sell the top-of-the-line electric vehicles to our customers as we invest in improving every aspect of the electric vehicle experience i.e., from technology to design to provide the best products to our customers, we strive for a sense of purpose towards innovation. We at VE believe that innovation is the key to growth and success, which is why no word encompasses what we stand for - The Vigorous Effort we put into providing the best possible service to our customers. Vihaan Electrix has joined hands and formed an association with the pioneers in EVs, like BOOM MOTORS, BGAUSS, FRANKLYN EV, EARTH ENERGY. With this VE enables the EV market expansion in every remote corner of Andhra Pradesh.");
     }
 
     @OnClick(R.id.ll_2)
     public void onLogoSelected2() {
-        redirectToDetail(2, "VENERGY", "The essential requirements of VE are not only emission-free vehicles with high-performance lithium batteries but also keeping your vehicles charged to get a smooth experience. VE is highly competent in providing charge refill in minimal time in an interval of 20KM with at least one reliable charge station, whether you’re in urban or rural localities.");
+        redirectToDetail(2, "VENERGY", "The essential requirements of VE are not only emission-free vehicles with high-performance lithium batteries but also keeping your vehicles charged to get a smooth experience. VE is highly competent in providing charge refill in minimal time in an interval of 20KM with at least one reliable charge station, whether you’re in urban or rural localities. Vihaan Electrix is empowering the incredible experience of installing charging units. VE extremely well-executed a pilot project of installing 30 charging points across the Visakhapatnam region in 2 months. Presently, Vihaan Electrix acting as the CPO (Charge Point Operator) with the support of CHARZER, a Bangalore-based R&D Company for 3.3kw chargers. In further VE will also install Fast chargers of 30 kW for 4W EVs.");
     }
 
     @OnClick(R.id.ll_3)
     public void onLogoSelected3() {
-        redirectToDetail(3, "VEASE", "VEase is the initiative taken by VE to change the definition of everyday Indian garage and equipment services, we aim at making this experience the most hygienic, well maintained, and best. We also try to provide 48 hours closing time for any service request throughout Andhra Pradesh.");
+        redirectToDetail(3, "VEASE", "VEase is the initiative taken by VE to change the definition of everyday Indian garage and equipment services, We aim at making this experience the most hygienic, well maintained, and best. We also try to provide 48 hours closing time for any service request throughout Andhra Pradesh. We are currently running four service stations across Visakhapatnam for all types of electric vehicles. Electric Vehicles require regularized service and repairs for the safety and durability of these vehicles. They are easy in operating conditions and also they require periodic servicing of major and minor parts. Specialized repair stations will be established by experienced service technicians and a qualified management team, with low investment.");
     }
 
 
     @OnClick(R.id.ll_4)
     public void onLogoSelected4() {
-        redirectToDetail(4, "VEQUIPMENT", "The growing e-commerce has brought the world to the fingertips of customers, keeping this very element in mind, VE has come up with an exclusive online platform that helps users and customers to place orders of unique, high end and easy-to-use spare parts and accessories for any EV out there that helps them maintain their vehicle in the best form. We also try to fulfil your order request in a record time of 48 hours.");
+        redirectToDetail(4, "VEQUIPMENT", "VEquipment deals with spare parts for electric automotive components (two & three & four- wheelers). Presently we are only dealing with two-wheeler segments, supplying limited EV Components to our service stations. The growing E-commerce has brought the world to the fingertips of customers, keeping this very element in mind VE has come up with an exclusive online platform like Amazon, Flipkart, etc. that helps users and customers to place orders of unique, high end and easy-to-use spare parts and accessories for any EV out there that helps them maintain their vehicle in the best form. We also try to fulfill your order request in a record time of 48 hours.");
     }
 
     @OnClick(R.id.ll_5)
     public void onLogoSelected5() {
-        redirectToDetail(5, "VESSENTIAL", "With the world revolving around web applications or more commonly called apps, VE has come up with VEssential, an exclusive app that helps the user track down the nearest VEnroute stores, VEnergy charging stations, VEase garages, and all the services options related to VElectrix. VEssential ensures a technologically rich, quick, and glitch-free experience for all users.");
+        redirectToDetail(5, "VESSENTIAL", "With the world revolving around web applications or more commonly called apps, VE has come up with VEssential, an exclusive app that helps the user track down the nearest VEnroute stores, VEnergy charging stations, VEase garages, and all the services options related to VElectrix. VEssential ensures a technologically rich, quick, and glitch-free experience for all users.\n\n" +
+                "• User Friendly Interface in the digital world of EV\n" +
+                "• Quick response to queries by the service team\n" +
+                "• Safe and Secure Payments through the purchase in APP\n" +
+                "• Real time Map services for tracking VE stores and Charging stations");
     }
 
 
@@ -131,8 +137,10 @@ public class HomeFragment extends BaseFragment {
                 });
     }
 
+    static List<ImageResponse> imageRes;
 
     void setAdapter(List<ImageResponse> imageRes) {
+        HomeFragment.imageRes = imageRes;
         ll_banners.removeAllViews();
         Map<String, List<ImageResponse>> map = new HashMap<>();
         for (ImageResponse res : imageRes) {

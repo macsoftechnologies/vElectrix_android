@@ -30,6 +30,7 @@ import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -137,7 +138,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
 
     void populateBottomSheetContent(List<ColorMappingResponse> list, LinearLayout ll_container) {
         ColorMappingResponse data = list.get(0);
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new LinkedHashMap<>();
         //
         map.put("Top Speed", data.getTopSpeed());
         map.put("Range", data.getRange());
@@ -186,7 +187,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
             index++;
         }
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             ll_container.getChildAt(i).setVisibility(View.VISIBLE);
         }
 

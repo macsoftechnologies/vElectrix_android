@@ -31,13 +31,13 @@
             android:lineSpacingMultiplier="1.5"
             android:textSize="16sp"
             android:layout_height="wrap_content"
-            tools:text="VEnroute ensures to sell the top-of-the-line electric vehicles to our customers as we invest in improving every aspect of the electric vehicle experience i.e., from technology to design to provide the best products to our customers, we strive for a sense of purpose towards innovation. We at VE believe that innovation is the key to growth and success, which is why no word encompasses what we stand for - The Vigorous Effort we put into providing the best possible service to our customers." />
+            tools:text="VEnroute ensures to sell the top-of-the-line electric vehicles to our customers as we invest in improving every aspect of the electric vehicle experience i.e., from technology to design to provide the best products to our customers, we strive for a sense of purpose towards innovation. We at VE believe that innovation is the key to growth and success, which is why no word encompasses what we stand for - The Vigorous Effort we put into providing the best possible service to our customers. Vihaan Electrix has joined hands and formed an association with the pioneers in EVs, like BOOM MOTORS, BGAUSS, FRANKLYN EV, EARTH ENERGY. With this VE enables the EV market expansion in every remote corner of Andhra Pradesh." />
     </ScrollView>
     
     <ImageView
         android:id="@+id/iv_next"
         android:layout_gravity="right"
-        android:layout_margin="20sp"
+        android:layout_margin="10dp"
         android:layout_width="50dp"
         android:src="@drawable/ic_baseline_navigate_next_24"
         android:layout_height="50dp"/>

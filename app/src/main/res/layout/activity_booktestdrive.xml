@@ -34,7 +34,8 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/name" />
@@ -54,7 +55,8 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/adhar_no" />
@@ -67,13 +69,15 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:maxLength="12"
         android:singleLine="true"
         android:inputType="number" />
 
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CONTACT NO:" />
@@ -85,6 +89,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:maxLength="10"
         android:background="@drawable/et_book_ride"
         android:singleLine="true"
         android:inputType="number" />
@@ -92,7 +97,8 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ADDRESS" />
@@ -111,10 +117,11 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Area" />
+        android:text="AREA" />
 
     <EditText
         android:id="@+id/edit_addrs2"
@@ -131,7 +138,8 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="LAND MARK :" />
@@ -151,7 +159,8 @@
     <TextView
         android:gravity="left"
         android:layout_margin="5dp"
-        android:textSize="@dimen/sub_title"
+        android:textSize="16sp"
+        android:textColor="@color/book_test_ride_header_font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CITY :" />
