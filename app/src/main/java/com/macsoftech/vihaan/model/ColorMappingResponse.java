@@ -83,6 +83,11 @@ public class ColorMappingResponse {
 
     private String gradeablity;
 
+    private String wheelSize;
+    private String batteryWarranty;
+    private String motorWarranty;
+    private String licenseRegistration;
+
     private String _id;
 
     public String getMotor() {
@@ -456,5 +461,37 @@ public class ColorMappingResponse {
 
     public void setTopSpeed(String topSpeed) {
         this.topSpeed = topSpeed;
+    }
+
+    public String getWheelSize() {
+        return wheelSize;
+    }
+
+    public void setWheelSize(String wheelSize) {
+        this.wheelSize = wheelSize;
+    }
+
+    public String getBatteryWarranty() {
+        return batteryWarranty;
+    }
+
+    public void setBatteryWarranty(String batteryWarranty) {
+        this.batteryWarranty = batteryWarranty;
+    }
+
+    public String getMotorWarranty() {
+        return motorWarranty;
+    }
+
+    public void setMotorWarranty(String motorWarranty) {
+        this.motorWarranty = motorWarranty;
+    }
+
+    public String getLicenseRegistration() {
+        return licenseRegistration;
+    }
+
+    public void setLicenseRegistration(String licenseRegistration) {
+        this.licenseRegistration = licenseRegistration;
     }
 }

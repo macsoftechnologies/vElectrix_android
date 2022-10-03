@@ -144,35 +144,43 @@ public class VenrouteBikeDetailFragment extends Fragment {
         map.put("Range", data.getRange());
         map.put("Charging Time", data.getChargingTime());
         map.put("Load Capacity", data.getLoadCapacity());
-        map.put("Battery Type", data.getBatteryType());
-        map.put("Motor Type", data.getMotorType());
         map.put("Battery Capacity", data.getBatteryCapacity());
+        map.put("Battery Type", data.getBatteryType());
         map.put("Motor Capacity", data.getMotorCapacity());
+        map.put("Motor Type", data.getMotorType());
+
+
         //
-        map.put("Tyre", data.getTyre());
-        map.put("Controller", data.getController());
+        map.put("BMS", data.getBms());
         map.put("Battery Casing", data.getBatteryCasing());
         map.put("Charger Output", data.getChargerOutput());
         map.put("External Charging Port", data.getExternalChargingPort());
-        map.put("Brake", data.getBrake());
         map.put("Regenerative Braking", data.getRegenerativeBraking());
         map.put("Display", data.getDisplay());
-        map.put("Gradeablity", data.getGradeablity());
-        map.put("Storage", data.getStorage());
         map.put("Security", data.getSecurity());
-        map.put("BMS", data.getBms());
-        map.put("Head Lamp", data.getHeadLamp());
-        map.put("Blinker", data.getBlinkers());
-        map.put("MudGuards", data.getMudGuards());
-        map.put("Seat", data.getSeat());
-        map.put("Throttle", data.getThrottle());
-        map.put("Foot Rest", data.getLadiesFootrest());
-        map.put("Brand Name", data.getBrandName());
-        map.put("Model", data.getModel());
-        map.put("Vehicle Name", data.getVehicleName());
-        map.put("Cells", data.getCells());
-        map.put("Amount", data.getAmount());
-        map.put("Speed", data.getSpeed());
+        map.put("Storage", data.getStorage());
+        map.put("Gradeablity", data.getGradeablity());
+        map.put("Brakes", data.getBrake());
+        map.put("Tyre", data.getTyre());
+        //
+        map.put("Wheel size", data.getWheelSize());
+        map.put("Battery Warranty", data.getBatteryWarranty());
+        map.put("Motor Warranty", data.getMotorWarranty());
+        map.put("Licence & Registration", data.getLicenseRegistration());
+
+//        map.put("Controller", data.getController());
+//        map.put("Head Lamp", data.getHeadLamp());
+//        map.put("Blinker", data.getBlinkers());
+//        map.put("MudGuards", data.getMudGuards());
+//        map.put("Seat", data.getSeat());
+//        map.put("Throttle", data.getThrottle());
+//        map.put("Foot Rest", data.getLadiesFootrest());
+//        map.put("Brand Name", data.getBrandName());
+//        map.put("Model", data.getModel());
+//        map.put("Vehicle Name", data.getVehicleName());
+//        map.put("Cells", data.getCells());
+//        map.put("Amount", data.getAmount());
+//        map.put("Speed", data.getSpeed());
 
         int index = 0;
         for (Map.Entry<String, String> set : map.entrySet()) {

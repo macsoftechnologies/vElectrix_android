@@ -147,8 +147,8 @@ public class NearStoresMapFragment extends Fragment implements OnMapReadyCallbac
 //                            " has been clicked ",
 //                    Toast.LENGTH_SHORT).show();
 //        }
-//        txt_title.setText(store.getChargerImage());
-        txt_title.setVisibility(View.GONE);
+        txt_title.setText(store.getShopName());
+//        txt_title.setVisibility(View.GONE);
         txt_timings.setText("Open: " + store.getStoreOpen() + "-" + store.getStoreClose());
         txt_directions.setOnClickListener(new View.OnClickListener() {
             @Override

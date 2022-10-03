@@ -8,6 +8,7 @@ public class StoresList {
     private String venergyOpen;
     private String venergyClose;
     private String chargerImage;
+    private String shopName;
 
     public String get_id() {
         return _id;
@@ -65,5 +66,13 @@ public class StoresList {
 
     public void setChargerImage(String chargerImage) {
         this.chargerImage = chargerImage;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 }

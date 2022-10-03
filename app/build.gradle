@@ -20,10 +20,20 @@ android {
         archivesBaseName = "Vihaan-$versionName"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs {
+        config {
+            keyAlias 'Vihaan'
+            keyPassword 'Vihaan@321'
+            storeFile file('config/vihaan.jks')
+            storePassword 'Vihaan@321'
+        }
+
+    }
 
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
