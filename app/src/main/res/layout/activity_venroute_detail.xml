@@ -7,6 +7,11 @@
     android:background="@color/white"
     tools:context=".activities.SplashScreenActivity">
 
+  <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+    android:id="@+id/layout1"/>
+
   <LinearLayout
       android:id="@+id/logo_layout"
       android:gravity="center"

@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.util.List;
 
 public class BrandResponse implements Parcelable {
+    public Object font;
     private String motor;
 
     private String throttle;

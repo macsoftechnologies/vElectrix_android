@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.fragment.app.FragmentTransaction;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;
@@ -17,6 +18,7 @@ public class VenRouteDetailActivity extends BaseActivity {
     private String brandLogo;
     private String brandName;
     ImageView imgBrandLogo;
+    private SwipeRefreshLayout layout1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,15 @@ public class VenRouteDetailActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
 
+        layout1 = findViewById(R.id.layout1);
+
+        layout1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                layout1.setRefreshing(false);
+            }
+        });
         brandLogo = intent.getStringExtra("brandLogo");
         brandName = intent.getStringExtra("brandName");
         getSupportActionBar().setTitle(brandName);

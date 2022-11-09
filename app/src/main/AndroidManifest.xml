@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.macsoftech.vihaan">
 
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- android:networkSecurityConfig="@xml/network_security_config" -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".app.BaseApp"
         android:allowBackup="true"
@@ -14,6 +17,13 @@
         android:theme="@style/Theme.Vihaan"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true">
@@ -28,16 +38,16 @@
             android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.VenRouteActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.VenRouteDetailActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.VenRouteBikeDetailActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.BookTestDriveActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.DashBoardActivity"
             android:screenOrientation="sensorPortrait" />
@@ -46,8 +56,5 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--    android:networkSecurityConfig="@xml/network_security_config"-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

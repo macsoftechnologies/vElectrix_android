@@ -456,13 +456,11 @@ public class ColorMappingResponse {
     }
 
     public String getTopSpeed() {
-        return topSpeed;
+        return speed;
     }
-
     public void setTopSpeed(String topSpeed) {
         this.topSpeed = topSpeed;
     }
-
     public String getWheelSize() {
         return wheelSize;
     }

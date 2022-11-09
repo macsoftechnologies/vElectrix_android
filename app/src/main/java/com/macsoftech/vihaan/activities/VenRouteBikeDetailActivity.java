@@ -22,7 +22,7 @@ public class VenRouteBikeDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venroute_bike_detail);
         bannerLogo = findViewById(R.id.bannerLogo);
-        getSupportActionBar().setTitle("Detail");
+         getSupportActionBar().setTitle("Detail");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().hide();
         Intent intent = getIntent();

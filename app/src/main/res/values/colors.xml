@@ -13,5 +13,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="material_white">#ECE4E4</color>
     <color name="md_blue_200">#878686</color>
+    <color name="buttoncolor">#005294</color>
     <color name="book_test_ride_header_font">#373434</color>
 </resources>

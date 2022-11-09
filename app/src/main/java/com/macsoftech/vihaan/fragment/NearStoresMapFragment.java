@@ -120,15 +120,17 @@ public class NearStoresMapFragment extends Fragment implements OnMapReadyCallbac
     private void showMarkers(List<StoresList> storesList) {
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (StoresList store : storesList) {
-            LatLng latLng = new LatLng(Double.parseDouble(store.getLatitude()),
-                    Double.parseDouble(store.getLongitude()));
-            Marker marker = googleMap.addMarker(new MarkerOptions()
-                    .position(latLng)
-                    .title("Open: " + store.getStoreOpen() + "-" + store.getStoreClose()));
-            marker.setTag(store);
-            builder.include(latLng);
-
-//            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            try {
+                LatLng latLng = new LatLng(Double.parseDouble(store.getLatitude()),
+                        Double.parseDouble(store.getLongitude()));
+                Marker marker = googleMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title("Open: " + store.getStoreOpen() + "-" + store.getStoreClose()));
+                marker.setTag(store);
+                builder.include(latLng);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         LatLngBounds latLngBounds = builder.build();

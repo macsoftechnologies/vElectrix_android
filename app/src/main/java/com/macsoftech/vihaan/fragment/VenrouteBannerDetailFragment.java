@@ -31,7 +31,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class VenrouteBannerDetailFragment extends Fragment {
+public class
+VenrouteBannerDetailFragment extends Fragment {
 
     RecyclerView recyclerView;
     @BindView(R.id.progressBar)

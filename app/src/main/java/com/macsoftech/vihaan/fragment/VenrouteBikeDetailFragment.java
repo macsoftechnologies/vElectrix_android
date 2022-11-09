@@ -3,6 +3,7 @@ package com.macsoftech.vihaan.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -39,6 +41,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class VenrouteBikeDetailFragment extends Fragment {
+
+    private String a,b,c,d,e,f,g;
 
     //RecyclerView recyclerView;
     private String vehId;
@@ -85,7 +89,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
         price = viewItem.findViewById(R.id.price);
         datasheet = viewItem.findViewById(R.id.datasheet);
         ll_data = viewItem.findViewById(R.id.ll_data);
-        ll_color = viewItem.findViewById(R.id.ll_color);
+        //ll_color = viewItem.findViewById(R.id.ll_color);
         txt_more = viewItem.findViewById(R.id.txt_more);
         // dot2 =  viewItem.findViewById(R.id.dot2);
         return viewItem;
@@ -94,6 +98,8 @@ public class VenrouteBikeDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Typeface tf = Typeface.createFromAsset(getResources().getAssets(),"fonts/Lato-Bold.ttf");
 
     }
 
@@ -149,7 +155,6 @@ public class VenrouteBikeDetailFragment extends Fragment {
         map.put("Motor Capacity", data.getMotorCapacity());
         map.put("Motor Type", data.getMotorType());
 
-
         //
         map.put("BMS", data.getBms());
         map.put("Battery Casing", data.getBatteryCasing());
@@ -177,7 +182,7 @@ public class VenrouteBikeDetailFragment extends Fragment {
 //        map.put("Foot Rest", data.getLadiesFootrest());
 //        map.put("Brand Name", data.getBrandName());
 //        map.put("Model", data.getModel());
-//        map.put("Vehicle Name", data.getVehicleName());
+       map.put("Vehicle Name", data.getVehicleName());
 //        map.put("Cells", data.getCells());
 //        map.put("Amount", data.getAmount());
 //        map.put("Speed", data.getSpeed());
@@ -188,11 +193,18 @@ public class VenrouteBikeDetailFragment extends Fragment {
             TextView txt_key = view.findViewById(R.id.txt_key);
             TextView txt_value = view.findViewById(R.id.txt_value);
             txt_key.setText(set.getKey().toUpperCase());
+            if(index<=8) {
+                //Custom font bold is applied to key and value pairs
+                Typeface tf = Typeface.createFromAsset(getResources().getAssets(), "fonts/Lato-Bold.ttf");
+                txt_value.setTypeface(tf);
+                txt_key.setTypeface(tf);
+            }
             txt_value.setText(set.getValue());
             ll_container.addView(view);
             view.setBackgroundColor(Color.WHITE);
             view.setVisibility(View.GONE);
             index++;
+
         }
 
         for (int i = 0; i < 8; i++) {

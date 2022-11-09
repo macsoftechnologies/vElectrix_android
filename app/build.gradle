@@ -16,7 +16,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1
-        versionName "1.0.7"
+        versionName "1.0.8"
         archivesBaseName = "Vihaan-$versionName"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,6 +32,7 @@ android {
 
     buildTypes {
         release {
+//            debuggable true
             minifyEnabled false
             signingConfig signingConfigs.config
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -82,6 +83,16 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
     implementation("com.tbuonomo:dotsindicator:4.3")
+    implementation 'androidx.multidex:multidex:2.0.0'
+//    def acraVersion = "5.9.6"
+
+
+//    implementation("ch.acra:acra-http:$acraVersion")
+//    implementation("ch.acra:acra-mail:$acraVersion")
+//    implementation("ch.acra:acra-dialog:$acraVersion")
+
+//    implementation 'ch.acra:acra:4.9.0'
+
 
 
 }

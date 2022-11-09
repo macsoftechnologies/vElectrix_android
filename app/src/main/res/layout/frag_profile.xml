@@ -41,8 +41,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
+            android:clickable="true"
+            android:id="@+id/terms1"
             android:text="Terms and Conditions"
             android:textColor="@color/black"
+            android:background="@color/white"
             android:padding="16dp"
             android:textSize="16sp"
             android:gravity="center_vertical"
@@ -58,6 +61,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
+            android:clickable="true"
+            android:id="@+id/privacy1"
             android:text="Privacy Policy"
             android:textColor="@color/black"
             android:padding="16dp"
@@ -76,6 +81,8 @@
         <TextView
             android:gravity="center_vertical"
             android:layout_width="match_parent"
+            android:clickable="true"
+            android:id="@+id/feed1"
             android:text="Feedback"
             android:textColor="@color/black"
             android:padding="16dp"
